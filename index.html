@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Okuma Portalı">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#312e81">
   <title>Türkçe Okuduğunu Anlama Portalı - Özel Eğitim</title>
   
-  <!-- Modern ve Akıcı Fontlar (Nunito & Plus Jakarta Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
-  <!-- PC Tarayıcı Sekmesi ve Android için Simge -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+  <!-- Yüksek Kaliteli Vektörel İkon (PC, Android ve Yedek) -->
+  <link id="faviconLink" rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231e1b4b'/%3E%3Cstop offset='55%25' stop-color='%23312e81'/%3E%3Cstop offset='100%25' stop-color='%230f172a'/%3E%3C/linearGradient%3E%3ClinearGradient id='bulb' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23fde047'/%3E%3Cstop offset='100%25' stop-color='%23f59e0b'/%3E%3C/linearGradient%3E%3ClinearGradient id='book' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2338bdf8'/%3E%3Cstop offset='50%25' stop-color='%23818cf8'/%3E%3Cstop offset='100%25' stop-color='%23c084fc'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='512' height='512' rx='112' fill='url(%23bg)'/%3E%3Ccircle cx='256' cy='185' r='88' fill='%23fbbf24' opacity='0.22'/%3E%3Cpath d='M256 105 C214 105 184 136 184 178 C184 208 202 232 224 250 L224 274 Q224 282 232 282 L280 282 Q288 282 288 274 L288 250 C310 232 328 208 328 178 C328 136 298 105 256 105 Z' fill='url(%23bulb)'/%3E%3Crect x='232' y='288' width='48' height='12' rx='6' fill='%23cbd5e1'/%3E%3Cpath d='M76 378 C138 338 218 344 256 378 C294 344 374 338 436 378 L436 404 C374 366 294 370 256 404 C218 370 138 366 76 404 Z' fill='%23f43f5e'/%3E%3Cpath d='M76 352 C138 310 218 316 256 352 C294 316 374 310 436 352 L436 382 C374 344 294 344 256 382 C218 344 138 344 76 382 Z' fill='url(%23book)'/%3E%3Cpath d='M256 350 L256 406' stroke='%23ffffff' stroke-width='8' stroke-linecap='round'/%3E%3Cpolygon points='256,52 264,72 285,74 269,88 274,108 256,96 238,108 243,88 227,74 248,72' fill='%23fef08a'/%3E%3C/svg%3E">
+  <link id="appleTouchIconLink" rel="apple-touch-icon" sizes="180x180" href="">
 
-  <!-- iPad, iPhone ve Tabletler İçin Ana Ekran İkonu -->
-  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%234338ca'/><text x='50%' y='55%' font-size='60' text-anchor='middle' dominant-baseline='central'>📖</text></svg>">
-  
   <style>
     :root {
       --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 50%, #fefce8 100%);
@@ -118,7 +120,6 @@
       transition: background 0.3s ease, color 0.2s ease;
     }
 
-    /* AÇILIŞ (SPLASH) EKRANI */
     #splashScreen {
       position: fixed;
       inset: 0;
@@ -136,7 +137,7 @@
       backdrop-filter: blur(12px);
       border: 2px solid rgba(255,255,255,0.8);
       border-radius: var(--radius-lg);
-      padding: 2.5rem 2.25rem;
+      padding: 2.3rem 2.1rem;
       max-width: 680px;
       width: 100%;
       text-align: center;
@@ -152,44 +153,39 @@
       justify-content: center;
       align-items: center;
       gap: 1.25rem;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.15rem;
     }
-    .splash-illustration-box {
-      width: 84px;
-      height: 84px;
-      background: linear-gradient(135deg, #eef2ff, #e0e7ff);
-      border: 2px solid #c7d2fe;
+    .splash-app-icon {
+      width: 92px;
+      height: 92px;
       border-radius: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.12);
+      box-shadow: 0 12px 28px rgba(49, 46, 129, 0.28);
+      border: 3px solid rgba(255, 255, 255, 0.9);
     }
     .splash-title {
-      font-size: 2rem;
+      font-size: 1.95rem;
       font-weight: 900;
       margin-bottom: 0.3rem;
       color: var(--text-main);
       letter-spacing: -0.02em;
     }
     .splash-author {
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       color: var(--primary);
       font-weight: 800;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.85rem;
+      margin-bottom: 1.35rem;
+      padding-bottom: 0.8rem;
       border-bottom: 2px dashed var(--border);
     }
     .splash-section-box {
       background: var(--surface-subtle);
       border: 2px solid var(--border);
       border-radius: var(--radius-md);
-      padding: 1.35rem;
-      margin-bottom: 1.25rem;
+      padding: 1.3rem;
+      margin-bottom: 1.2rem;
       text-align: left;
     }
 
-    /* ÜST BAR */
     header {
       background: var(--surface);
       backdrop-filter: blur(12px);
@@ -207,33 +203,31 @@
     }
     .brand-main {
       font-weight: 900;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      letter-spacing: -0.01em;
+      gap: 0.55rem;
     }
     .brand-sub {
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       color: var(--text-muted);
       font-weight: 700;
     }
     .top-controls {
       display: flex;
       align-items: center;
-      gap: 0.55rem;
+      gap: 0.5rem;
       flex-wrap: wrap;
     }
 
-    /* MODERN TABLET DOSTU BUTONLAR */
     .btn {
       background: var(--surface);
       color: var(--text-main);
       border: 2px solid var(--border-strong);
       border-bottom-width: 4px;
-      padding: 0.55rem 0.95rem;
+      padding: 0.52rem 0.9rem;
       border-radius: var(--radius-sm);
-      font-size: 0.95rem;
+      font-size: 0.94rem;
       font-weight: 800;
       cursor: pointer;
       display: inline-flex;
@@ -244,41 +238,32 @@
       position: relative;
       overflow: hidden;
     }
-    .btn:hover {
-      background: var(--surface-subtle);
-      transform: translateY(-1px);
-    }
-    .btn:active {
-      transform: translateY(2px);
-      border-bottom-width: 2px;
-    }
+    .btn:hover { background: var(--surface-subtle); transform: translateY(-1px); }
+    .btn:active { transform: translateY(2px); border-bottom-width: 2px; }
     .btn-primary {
       background: linear-gradient(135deg, #4f46e5, #4338ca);
       color: #ffffff;
       border-color: #312e81;
     }
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #4338ca, #3730a3);
-      color: #ffffff;
-    }
+    .btn-primary:hover { background: linear-gradient(135deg, #4338ca, #3730a3); color: #ffffff; }
     .btn-report {
       background: linear-gradient(135deg, #059669, #047857);
       color: #ffffff;
       border-color: #064e3b;
     }
-    .btn-report:hover {
-      background: linear-gradient(135deg, #047857, #065f46);
-      color: #ffffff;
-    }
+    .btn-report:hover { background: linear-gradient(135deg, #047857, #065f46); color: #ffffff; }
     .btn-homework {
       background: linear-gradient(135deg, #f59e0b, #d97706);
       color: #ffffff;
       border-color: #92400e;
     }
-    .btn-homework:hover {
-      background: linear-gradient(135deg, #d97706, #b45309);
+    .btn-homework:hover { background: linear-gradient(135deg, #d97706, #b45309); color: #ffffff; }
+    .btn-shuffle {
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9);
       color: #ffffff;
+      border-color: #4c1d95;
     }
+    .btn-shuffle:hover { background: linear-gradient(135deg, #7c3aed, #5b21b6); color: #ffffff; }
     .btn-speech {
       background: linear-gradient(135deg, #fef3c7, #fde68a);
       color: #92400e;
@@ -288,18 +273,11 @@
       font-size: 0.98rem;
       box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
     }
-    .btn-home {
-      background: #f1f5f9;
-      color: #0f172a;
-      border-color: #cbd5e1;
-    }
+    .btn-home { background: #f1f5f9; color: #0f172a; border-color: #cbd5e1; }
 
-    /* 3 SANİYE BASILI TUTMA EFEKTİ */
     .hold-progress-bar {
       position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
+      left: 0; top: 0; bottom: 0;
       width: 0%;
       background: rgba(255, 255, 255, 0.35);
       transition: width 0.05s linear;
@@ -318,16 +296,13 @@
     .font-size-btn {
       border: none;
       background: transparent;
-      padding: 0.4rem 0.75rem;
-      font-size: 0.95rem;
+      padding: 0.4rem 0.7rem;
+      font-size: 0.92rem;
       font-weight: 900;
       color: var(--text-main);
       cursor: pointer;
     }
-    .font-size-btn:hover {
-      background: var(--primary-light);
-      color: var(--primary);
-    }
+    .font-size-btn:hover { background: var(--primary-light); color: var(--primary); }
 
     main {
       flex: 1;
@@ -337,13 +312,12 @@
       padding: 0 1.15rem;
     }
 
-    /* ÖĞRENCİ ÖDEV VE VELİ NOTU PANELİ */
     .homework-student-banner {
       background: var(--surface);
       border: 2px solid #c7d2fe;
       border-radius: var(--radius-lg);
-      padding: 1.35rem 1.5rem;
-      margin-bottom: 1.35rem;
+      padding: 1.3rem 1.45rem;
+      margin-bottom: 1.3rem;
       box-shadow: 0 10px 25px rgba(79, 70, 229, 0.08);
       animation: floatIn 0.3s ease;
     }
@@ -353,10 +327,10 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 0.75rem;
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.8rem;
     }
     .hw-banner-title {
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       font-weight: 900;
       color: var(--primary);
       display: flex;
@@ -366,12 +340,12 @@
     .hw-parent-note {
       background: linear-gradient(135deg, #fffbeb, #fef3c7);
       border-left: 5px solid #f59e0b;
-      padding: 0.85rem 1.1rem;
+      padding: 0.8rem 1.05rem;
       border-radius: 12px;
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       color: #78350f;
       font-weight: 700;
-      margin-bottom: 1rem;
+      margin-bottom: 0.95rem;
       display: flex;
       align-items: flex-start;
       gap: 0.65rem;
@@ -385,61 +359,43 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.75rem 1rem;
+      padding: 0.7rem 0.95rem;
       border-radius: 16px;
       border: 2px solid var(--border);
       background: var(--surface-subtle);
       font-weight: 800;
-      font-size: 0.95rem;
+      font-size: 0.94rem;
       cursor: pointer;
       transition: all 0.2s ease;
     }
-    .hw-task-pill:hover {
-      border-color: var(--primary);
-      transform: translateY(-2px);
-    }
+    .hw-task-pill:hover { border-color: var(--primary); transform: translateY(-2px); }
     .hw-task-pill.active-hw {
       border-color: var(--primary);
       background: var(--primary-light);
       color: var(--primary-dark);
       box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.18);
     }
-    .hw-task-pill.done-hw {
-      border-color: #10b981;
-      background: #ecfdf5;
-      color: #065f46;
-    }
-    .hw-task-pill.done-hw .hw-task-name {
-      text-decoration: line-through;
-      opacity: 0.85;
-    }
+    .hw-task-pill.done-hw { border-color: #10b981; background: #ecfdf5; color: #065f46; }
+    .hw-task-pill.done-hw .hw-task-name { text-decoration: line-through; opacity: 0.85; }
     .hw-check-box {
-      width: 28px;
-      height: 28px;
+      width: 28px; height: 28px;
       border-radius: 8px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 900;
       background: #ffffff;
       border: 2px solid var(--border-strong);
     }
-    .hw-task-pill.done-hw .hw-check-box {
-      background: #10b981;
-      border-color: #059669;
-      color: #ffffff;
-    }
+    .hw-task-pill.done-hw .hw-check-box { background: #10b981; border-color: #059669; color: #ffffff; }
 
-    /* KATEGORİ KARTLARI */
-    .category-section {
-      margin-bottom: 1.35rem;
-    }
+    .category-section { margin-bottom: 1.3rem; }
     .category-title {
-      font-size: 1.1rem;
+      font-size: 1.08rem;
       font-weight: 900;
       color: var(--text-main);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.7rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -447,27 +403,24 @@
     .category-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 0.95rem;
+      gap: 0.9rem;
     }
     .category-card {
       border: 3px solid rgba(255,255,255,0.4);
       border-bottom-width: 6px;
       border-radius: var(--radius-md);
-      padding: 1.15rem 1.05rem;
+      padding: 1.1rem 1rem;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 0.9rem;
+      gap: 0.85rem;
       box-shadow: var(--shadow-sm);
       transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
       color: #ffffff;
       text-align: left;
       user-select: none;
     }
-    .category-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
+    .category-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
     .category-card.active {
       border-color: #0f172a;
       box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.3);
@@ -482,27 +435,16 @@
       background: rgba(255, 255, 255, 0.25);
       backdrop-filter: blur(4px);
       border-radius: 16px;
-      width: 54px;
-      height: 54px;
+      width: 52px; height: 52px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.85rem;
+      font-size: 1.8rem;
       flex-shrink: 0;
     }
-    .card-text-group h3 {
-      font-size: 1.15rem;
-      font-weight: 900;
-      line-height: 1.25;
-      margin-bottom: 0.15rem;
-    }
-    .card-text-group p {
-      font-size: 0.85rem;
-      opacity: 0.95;
-      font-weight: 700;
-    }
+    .card-text-group h3 { font-size: 1.12rem; font-weight: 900; line-height: 1.25; margin-bottom: 0.1rem; }
+    .card-text-group p { font-size: 0.84rem; opacity: 0.95; font-weight: 700; }
 
-    /* ZORLUK BAR */
     .difficulty-bar {
       display: flex;
       align-items: center;
@@ -511,102 +453,76 @@
       backdrop-filter: blur(10px);
       border: 2px solid var(--border);
       border-radius: var(--radius-md);
-      padding: 0.75rem 1.25rem;
-      margin-bottom: 1.25rem;
+      padding: 0.75rem 1.2rem;
+      margin-bottom: 1.2rem;
       flex-wrap: wrap;
       gap: 0.75rem;
       box-shadow: var(--shadow-sm);
     }
-    .diff-btn-group {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
+    .diff-btn-group { display: flex; gap: 0.5rem; flex-wrap: wrap; }
     .diff-btn {
       border: 2px solid var(--border-strong);
       border-bottom-width: 4px;
       background: var(--surface-subtle);
       color: var(--text-main);
-      padding: 0.45rem 0.95rem;
+      padding: 0.42rem 0.9rem;
       border-radius: var(--radius-sm);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 800;
       cursor: pointer;
-      transition: all 0.15s ease;
     }
-    .diff-btn.active {
-      background: var(--primary);
-      color: #ffffff;
-      border-color: var(--primary-dark);
-    }
+    .diff-btn.active { background: var(--primary); color: #ffffff; border-color: var(--primary-dark); }
 
-    /* ANA ETKİNLİK KARTI */
     .card {
       background: var(--surface);
       backdrop-filter: blur(14px);
       border: 2px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 2.1rem;
+      padding: 2rem;
       box-shadow: var(--shadow-md);
     }
     .activity-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.85rem;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.8rem;
       border-bottom: 2px solid var(--border);
       flex-wrap: wrap;
       gap: 0.75rem;
     }
     .level-tag {
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 900;
       background: var(--primary-light);
       color: var(--primary);
-      padding: 0.4rem 0.95rem;
+      padding: 0.38rem 0.95rem;
       border-radius: 50px;
     }
 
-    .reading-box-wrapper {
-      position: relative;
-      margin-bottom: 1.75rem;
-    }
+    .reading-box-wrapper { position: relative; margin-bottom: 1.7rem; }
     .reading-box {
       background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
       border: 2.5px solid var(--border-strong);
       border-radius: var(--radius-md);
-      padding: 2.6rem 2rem 2.2rem 2rem;
-      font-size: 1.5em;
+      padding: 2.6rem 1.9rem 2.1rem 1.9rem;
+      font-size: 1.48em;
       font-weight: 800;
       line-height: 1.75;
-      letter-spacing: 0.01em;
       text-align: center;
       box-shadow: inset 0 2px 6px rgba(15, 23, 42, 0.03);
     }
-    body.calm-mode .reading-box,
-    body.contrast-mode .reading-box {
-      background: var(--surface-subtle);
-    }
+    body.calm-mode .reading-box, body.contrast-mode .reading-box { background: var(--surface-subtle); }
     .reading-box.paragraph-mode {
       text-align: left;
       font-size: 1.25em;
       font-weight: 700;
-      text-indent: 1.75rem;
-      line-height: 1.9;
+      text-indent: 1.6rem;
+      line-height: 1.88;
     }
-    .reading-speech-float {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-    }
+    .reading-speech-float { position: absolute; top: 12px; right: 12px; }
 
-    .word-span {
-      display: inline-block;
-      padding: 0 5px;
-      border-radius: 8px;
-      transition: all 0.15s ease;
-    }
+    .word-span { display: inline-block; padding: 0 5px; border-radius: 8px; transition: all 0.15s ease; }
     .word-active {
       background-color: #4f46e5 !important;
       color: #ffffff !important;
@@ -619,37 +535,29 @@
     body.contrast-mode .syl-2 { color: #ffffff; }
 
     .question-prompt {
-      font-size: 1.28em;
+      font-size: 1.25em;
       font-weight: 900;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.15rem;
       color: var(--text-main);
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
-    
-    .choices-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    @media (min-width: 680px) {
-      .choices-grid.choices-cols-2 { grid-template-columns: 1fr 1fr; }
-    }
+    .choices-grid { display: grid; grid-template-columns: 1fr; gap: 0.95rem; margin-bottom: 1.4rem; }
+    @media (min-width: 680px) { .choices-grid.choices-cols-2 { grid-template-columns: 1fr 1fr; } }
     
     .choice-btn {
       background: var(--surface);
       color: var(--text-main);
       border: 2.5px solid var(--border-strong);
       border-bottom-width: 5px;
-      padding: 1.15rem 1.35rem;
+      padding: 1.1rem 1.3rem;
       border-radius: var(--radius-md);
-      font-size: 1.15em;
+      font-size: 1.14em;
       font-weight: 800;
       text-align: left;
       cursor: pointer;
-      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.15s ease;
       line-height: 1.4;
       display: flex;
       align-items: center;
@@ -660,18 +568,13 @@
       background: var(--primary-light);
       transform: translateY(-2px);
     }
-    .choice-btn:active:not(:disabled) {
-      transform: translateY(2px);
-      border-bottom-width: 2.5px;
-    }
     .choice-badge {
       background: var(--surface-subtle);
       border: 2px solid var(--border-strong);
       color: var(--primary);
       font-size: 0.9em;
       font-weight: 900;
-      width: 38px;
-      height: 38px;
+      width: 38px; height: 38px;
       border-radius: 12px;
       display: inline-flex;
       align-items: center;
@@ -679,65 +582,38 @@
       flex-shrink: 0;
     }
 
-    /* GÖRSEL SIRALAMA */
-    .order-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.95rem;
-      margin-bottom: 1.6rem;
-    }
+    .order-list { display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 1.5rem; }
     .order-item {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.15rem 1.4rem;
+      padding: 1.1rem 1.35rem;
       background: var(--surface-subtle);
       border: 2.5px solid var(--border-strong);
       border-bottom-width: 5px;
       border-radius: var(--radius-md);
       font-weight: 800;
-      font-size: 1.12em;
+      font-size: 1.1em;
       gap: 1rem;
       cursor: grab;
       touch-action: none;
-      transition: transform 0.15s, box-shadow 0.15s;
     }
-    .order-item:active { cursor: grabbing; }
-    .order-item.dragging {
-      opacity: 0.7;
-      transform: scale(1.02);
-      box-shadow: var(--shadow-md);
-      z-index: 100;
-    }
-    .order-item.drag-over {
-      border-color: var(--primary);
-      background-color: var(--primary-light);
-      transform: translateY(2px);
-    }
-    .order-item-left {
-      display: flex;
-      align-items: center;
-      gap: 1.1rem;
-      flex: 1;
-    }
-    .drag-handle {
-      font-size: 1.6rem;
-      color: var(--text-muted);
-      margin-right: 0.3rem;
-      cursor: inherit;
-    }
+    .order-item.dragging { opacity: 0.7; transform: scale(1.02); box-shadow: var(--shadow-md); z-index: 100; }
+    .order-item.drag-over { border-color: var(--primary); background-color: var(--primary-light); }
+    .order-item-left { display: flex; align-items: center; gap: 1rem; flex: 1; }
+    .drag-handle { font-size: 1.5rem; color: var(--text-muted); cursor: inherit; }
     .visual-icon {
-      font-size: 2.4rem;
-      min-width: 55px;
+      font-size: 2.3rem;
+      min-width: 54px;
       text-align: center;
       background: #ffffff;
       border-radius: 14px;
-      padding: 0.25rem;
+      padding: 0.2rem;
       box-shadow: var(--shadow-sm);
     }
     .order-controls button {
-      padding: 0.55rem 0.95rem;
-      font-size: 1.15rem;
+      padding: 0.5rem 0.9rem;
+      font-size: 1.1rem;
       border-radius: 12px;
       border: 2px solid var(--border-strong);
       border-bottom-width: 4px;
@@ -745,15 +621,15 @@
       color: var(--text-main);
       font-weight: 900;
       cursor: pointer;
-      margin-left: 0.3rem;
+      margin-left: 0.25rem;
     }
 
     .activity-nav-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 1.5rem;
-      padding-top: 1.25rem;
+      margin-top: 1.4rem;
+      padding-top: 1.2rem;
       border-top: 2px solid var(--border);
       flex-wrap: wrap;
       gap: 0.75rem;
@@ -765,13 +641,12 @@
       background: linear-gradient(135deg, #fef9c3, #fef08a);
       color: #854d0e;
       border: 2px solid #facc15;
-      padding: 0.4rem 0.9rem;
+      padding: 0.38rem 0.85rem;
       border-radius: 50px;
       font-weight: 900;
-      font-size: 0.98rem;
+      font-size: 0.95rem;
     }
 
-    /* MODALLAR */
     .modal-backdrop {
       display: none;
       position: fixed;
@@ -786,7 +661,7 @@
     }
     .modal-card {
       background: var(--surface);
-      padding: 2.2rem;
+      padding: 2.1rem;
       border-radius: var(--radius-lg);
       text-align: center;
       max-width: 560px;
@@ -797,7 +672,7 @@
       max-height: 92vh;
       overflow-y: auto;
     }
-    .modal-icon { font-size: 4.2rem; margin-bottom: 0.5rem; }
+    .modal-icon { font-size: 4rem; margin-bottom: 0.5rem; }
     .student-manage-list {
       max-height: 220px;
       overflow-y: auto;
@@ -810,12 +685,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.75rem 1rem;
+      padding: 0.7rem 1rem;
       border-bottom: 1px solid var(--border);
-      font-size: 1.05rem;
+      font-size: 1.02rem;
     }
 
-    /* ÖDEV VERME MODAL TASARIMI */
     .hw-assign-row {
       display: flex;
       justify-content: space-between;
@@ -823,66 +697,36 @@
       background: var(--surface-subtle);
       border: 2px solid var(--border);
       border-radius: 14px;
-      padding: 0.75rem 1rem;
-      margin-bottom: 0.6rem;
+      padding: 0.7rem 1rem;
+      margin-bottom: 0.55rem;
     }
-    .hw-counter-ctrl {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
+    .hw-counter-ctrl { display: flex; align-items: center; gap: 0.6rem; }
     .hw-count-btn {
-      width: 36px;
-      height: 36px;
+      width: 36px; height: 36px;
       border-radius: 10px;
       border: 2px solid var(--border-strong);
       background: #ffffff;
       font-weight: 900;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       cursor: pointer;
     }
-    .hw-count-val {
-      font-weight: 900;
-      font-size: 1.2rem;
-      min-width: 28px;
-      text-align: center;
-      color: var(--primary);
-    }
+    .hw-count-val { font-weight: 900; font-size: 1.15rem; min-width: 28px; text-align: center; color: var(--primary); }
 
-    /* RAPOR TABLOSU */
-    .report-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-      font-size: 0.95rem;
-    }
-    .report-table th, .report-table td {
-      border: 2px solid var(--border);
-      padding: 0.8rem 1rem;
-      text-align: left;
-    }
-    .report-table th {
-      background: var(--surface-subtle);
-      font-weight: 900;
-    }
-    .tag-badge {
-      display: inline-block;
-      padding: 0.25rem 0.7rem;
-      border-radius: 8px;
-      font-size: 0.88rem;
-      font-weight: 900;
-    }
+    .report-table { width: 100%; border-collapse: collapse; margin-top: 0.9rem; font-size: 0.94rem; }
+    .report-table th, .report-table td { border: 2px solid var(--border); padding: 0.75rem 0.95rem; text-align: left; }
+    .report-table th { background: var(--surface-subtle); font-weight: 900; }
+    .tag-badge { display: inline-block; padding: 0.22rem 0.65rem; border-radius: 8px; font-size: 0.85rem; font-weight: 900; }
     .tag-success { background: #dcfce7; color: #166534; }
     .tag-warn { background: #fef3c7; color: #92400e; }
     .bep-output-box {
       background: var(--surface-subtle);
       border: 2px dashed var(--primary);
       border-radius: var(--radius-md);
-      padding: 1.25rem;
-      margin-top: 1.5rem;
+      padding: 1.2rem;
+      margin-top: 1.4rem;
       text-align: left;
-      font-size: 1rem;
-      line-height: 1.7;
+      font-size: 0.98rem;
+      line-height: 1.65;
     }
 
     #worksheetPrintArea { display: none; }
@@ -892,27 +736,20 @@
       #worksheetPrintArea {
         display: block !important;
         position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        padding: 2cm;
-        background: #fff;
-        color: #000;
-        font-size: 12pt;
+        left: 0; top: 0; width: 100%;
+        padding: 1.8cm;
+        background: #fff; color: #000; font-size: 12pt;
       }
       .ws-header {
         border-bottom: 2px solid #000;
-        padding-bottom: 15px;
-        margin-bottom: 25px;
-        display: flex;
-        justify-content: space-between;
+        padding-bottom: 12px; margin-bottom: 20px;
+        display: flex; justify-content: space-between;
       }
       .ws-item {
-        margin-bottom: 25px;
+        margin-bottom: 20px;
         page-break-inside: avoid;
         border: 1px solid #ccc;
-        padding: 15px;
-        border-radius: 8px;
+        padding: 14px; border-radius: 8px;
       }
     }
   </style>
@@ -923,38 +760,26 @@
   <div id="splashScreen">
     <div class="splash-card">
       <div class="splash-visual-container">
-        <div class="splash-illustration-box">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
-            <path d="M6 6h10"/><path d="M6 10h10"/>
-          </svg>
-        </div>
-        <div class="splash-illustration-box">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
-          </svg>
-        </div>
+        <img id="splashLogoImg" class="splash-app-icon" alt="Okuma Portalı İkonu" src="">
       </div>
       <h1 class="splash-title">Türkçe Okuduğunu Anlama Portalı</h1>
       <div class="splash-author">Hazırlayan: Özel Eğitim Öğretmeni Cüneyd Kayalı</div>
       
       <div class="splash-section-box">
-        <label for="splashNewStudentInput" style="font-size: 1.05rem; font-weight: 800; display: block; margin-bottom: 0.45rem;">👤 Yeni Öğrenci Kaydet:</label>
-        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
-          <input type="text" id="splashNewStudentInput" placeholder="Öğrencinin Adı..." class="btn" style="flex: 1; font-size: 1.05rem; cursor: text;">
+        <label for="splashNewStudentInput" style="font-size: 1.02rem; font-weight: 800; display: block; margin-bottom: 0.4rem;">👤 Yeni Öğrenci Kaydet:</label>
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 0.95rem;">
+          <input type="text" id="splashNewStudentInput" placeholder="Öğrencinin Adı..." class="btn" style="flex: 1; font-size: 1.02rem; cursor: text;">
           <button class="btn btn-primary" onclick="addStudentDirectlyFromSplash()">+ Kaydet</button>
         </div>
-        <label for="splashStudentSelect" style="font-size: 1.05rem; font-weight: 800; display: block; margin-bottom: 0.45rem;">📋 Çalışacak Öğrenciyi Seç:</label>
-        <select id="splashStudentSelect" class="btn" style="width: 100%; padding: 0.75rem; font-size: 1.05rem;"></select>
-        
-        <!-- Açılış ekranında öğrencinin ödev özeti -->
-        <div id="splashHomeworkPreview" style="margin-top: 1rem; display: none;"></div>
+        <label for="splashStudentSelect" style="font-size: 1.02rem; font-weight: 800; display: block; margin-bottom: 0.4rem;">📋 Çalışacak Öğrenciyi Seç:</label>
+        <select id="splashStudentSelect" class="btn" style="width: 100%; padding: 0.7rem; font-size: 1.02rem;"></select>
+        <div id="splashHomeworkPreview" style="margin-top: 0.95rem; display: none;"></div>
       </div>
 
-      <button class="btn btn-primary" style="width: 100%; padding: 1.05rem; justify-content: center; font-size: 1.25rem;" onclick="startSession()">
+      <button class="btn btn-primary" style="width: 100%; padding: 1rem; justify-content: center; font-size: 1.22rem;" onclick="startSession()">
         Etkinliklere Başla ➔
       </button>
-      <p style="margin-top: 1rem; font-size: 0.85rem; text-align: center;">
+      <p style="margin-top: 0.9rem; font-size: 0.84rem; text-align: center;">
         <a href="javascript:void(0)" onclick="emergencyReset()" style="color: #94a3b8; text-decoration: underline;">Sistem açılmıyorsa buraya tıklayarak hafızayı sıfırlayın</a>
       </p>
     </div>
@@ -973,15 +798,14 @@
       <button class="btn" onclick="toggleFullScreen()">⛶ Tam Ekran</button>
       <div class="font-size-group">
         <button class="font-size-btn" onclick="adjustFontSize(-2)">A-</button>
-        <button class="font-size-btn" style="font-size: 0.8rem; pointer-events: none;">Punto</button>
+        <button class="font-size-btn" style="font-size: 0.78rem; pointer-events: none;">Punto</button>
         <button class="font-size-btn" onclick="adjustFontSize(2)">A+</button>
       </div>
-      <select id="studentSelect" class="btn" style="font-size: 0.95rem; padding: 0.45rem 0.75rem;"></select>
+      <select id="studentSelect" class="btn" style="font-size: 0.92rem; padding: 0.42rem 0.7rem;"></select>
       <button class="btn" onclick="openStudentManager()">👥 Öğrenciler</button>
       <button class="btn" id="calmBtn" onclick="toggleCalmMode()">🌿 Sakin</button>
       <button class="btn" onclick="toggleContrast()">👁️ Kontrast</button>
       
-      <!-- 3 SANİYE BASILI TUTMALI ÖĞRETMEN PANELİ BUTONU -->
       <button class="btn btn-report" id="teacherHoldBtn" title="Açmak için 3 saniye basılı tutun">
         <span class="hold-progress-bar" id="teacherHoldBar"></span>
         <span id="teacherHoldText" style="position: relative; z-index: 2;">🔒 Öğretmen Paneli (3 sn)</span>
@@ -990,10 +814,8 @@
   </header>
 
   <main>
-    <!-- ÖĞRENCİ ÖDEV TAKİP VE VELİ NOTU ALANI -->
     <div id="studentHomeworkBanner" class="homework-student-banner no-print" style="display: none;"></div>
 
-    <!-- KATEGORİ SEÇİMİ (Öğretmen paneline geçince gizlenir) -->
     <section class="category-section no-print" id="categorySection">
       <div class="category-title"><span>🎯 Etkinlik Maceranı Seç:</span></div>
       <div class="category-grid" role="tablist">
@@ -1016,10 +838,9 @@
       </div>
     </section>
 
-    <!-- ZORLUK VE ARAÇ ÇUBUĞU (Öğretmen paneline geçince gizlenir) -->
     <div class="difficulty-bar no-print" id="difficultyBar">
       <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-        <span style="font-weight: 900; font-size: 1rem;">⚙️ Zorluk:</span>
+        <span style="font-weight: 900; font-size: 0.98rem;">⚙️ Zorluk:</span>
         <div class="diff-btn-group">
           <button class="diff-btn" id="diff-easy" onclick="setDifficulty('easy')">🌱 Kolay (2 Şık)</button>
           <button class="diff-btn active" id="diff-medium" onclick="setDifficulty('medium')">🌿 Orta (3 Şık)</button>
@@ -1032,11 +853,10 @@
       </div>
     </div>
 
-    <!-- ETKİNLİK KARTI -->
     <div id="activityContainer" class="card">
       <div class="activity-header">
         <span class="level-tag" id="levelTag">1. Düzey: Tek Cümle</span>
-        <span id="activeHwIndicator" style="font-size: 0.95rem; font-weight: 800; color: var(--accent-dark);"></span>
+        <span id="activeHwIndicator" style="font-size: 0.94rem; font-weight: 800; color: var(--accent-dark);"></span>
       </div>
 
       <div class="reading-box-wrapper">
@@ -1048,19 +868,20 @@
 
       <div class="activity-nav-footer no-print">
         <button class="btn" id="prevBtn" onclick="navigateItem(-1)">◀ Önceki Soru</button>
-        <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 700;">(Klavye: 1, 2, 3, 4 / Boşluk: Ses)</span>
+        <span style="font-size: 0.88rem; color: var(--text-muted); font-weight: 700;">(Klavye: 1, 2, 3, 4 / Boşluk: Ses)</span>
         <button class="btn btn-primary" id="nextBtn" onclick="navigateItem(1)">Sonraki Soru ▶</button>
       </div>
     </div>
 
     <!-- ÖĞRETMEN PANELİ VE RAPOR KARTI -->
     <div id="reportContainer" class="card" style="display: none;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid var(--border); flex-wrap: wrap; gap: 1rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.4rem; padding-bottom: 1rem; border-bottom: 2px solid var(--border); flex-wrap: wrap; gap: 0.9rem;">
         <div>
-          <span class="level-tag" style="margin-bottom: 0.4rem; display: inline-block;">👨‍🏫 Öğretmen Kontrol Merkezi</span>
-          <h2 style="font-size: 1.5rem; font-weight: 900;">Bireysel Gelişim Raporu & Ödev Yönetimi</h2>
+          <span class="level-tag" style="margin-bottom: 0.35rem; display: inline-block;">👨‍🏫 Öğretmen Kontrol Merkezi</span>
+          <h2 style="font-size: 1.45rem; font-weight: 900;">Bireysel Gelişim Raporu & İçerik Yönetimi</h2>
         </div>
-        <div class="no-print" style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+        <div class="no-print" style="display: flex; gap: 0.55rem; flex-wrap: wrap;">
+          <button class="btn btn-shuffle" onclick="regenerateAllTextsAndNames()">🔄 Tüm Metinleri ve İsimleri Karıştır</button>
           <button class="btn btn-homework" onclick="openHomeworkModal()">📋 Ödev Verme Alanı</button>
           <button class="btn btn-primary" onclick="openCustomContentModal()">✏️ Yeni Soru / Metin Ekle</button>
           <button class="btn" onclick="window.print()">🖨️ Yazdır / PDF</button>
@@ -1068,16 +889,22 @@
         </div>
       </div>
 
-      <div style="display: flex; gap: 2rem; flex-wrap: wrap; background: var(--surface-subtle); padding: 1.2rem; border-radius: var(--radius-md); margin-bottom: 1.5rem; border: 2px solid var(--border);">
+      <div id="shuffleStatusBanner" style="background: linear-gradient(135deg, #f3e8ff, #e0e7ff); border: 2px solid #c084fc; border-radius: var(--radius-md); padding: 0.9rem 1.2rem; margin-bottom: 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+        <div style="font-size: 0.95rem; font-weight: 800; color: #4c1d95;">
+          ✨ <strong>Dinamik Senaryo Motoru Aktif:</strong> 30 Olay × 36 Kişi × Çoklu Varyasyon (İsimler ve olay detayları otomatik harmanlanır)
+        </div>
+        <span id="shuffleCountBadge" class="tag-badge" style="background: #6d28d9; color: #fff;">Karıştırma: #1</span>
+      </div>
+
+      <div style="display: flex; gap: 2rem; flex-wrap: wrap; background: var(--surface-subtle); padding: 1.1rem; border-radius: var(--radius-md); margin-bottom: 1.4rem; border: 2px solid var(--border);">
         <div><strong>Öğrenci:</strong> <span id="reportStudentName">-</span></div>
         <div><strong>Tarih:</strong> <span id="reportDate">-</span></div>
         <div><strong>Toplam Çözülen Etkinlik:</strong> <span id="reportTotalTasks">0</span></div>
       </div>
 
-      <!-- Öğretmen panelinde mevcut ödevlerin hızlı özeti -->
-      <div id="teacherHomeworkSummaryBox" style="margin-bottom: 1.5rem;"></div>
+      <div id="teacherHomeworkSummaryBox" style="margin-bottom: 1.4rem;"></div>
 
-      <h3 style="margin-top: 1.2rem; margin-bottom: 0.5rem; font-size: 1.2rem; font-weight: 900;">Soru Kökü & Beceri Analizi</h3>
+      <h3 style="margin-top: 1.1rem; margin-bottom: 0.5rem; font-size: 1.18rem; font-weight: 900;">Soru Kökü & Beceri Analizi</h3>
       <table class="report-table">
         <thead>
           <tr>
@@ -1094,12 +921,12 @@
       <div class="bep-output-box">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
           <strong style="color: var(--primary);">📋 MEB / BEP Toplantı Değerlendirme Özeti:</strong>
-          <button class="btn" style="padding: 0.35rem 0.75rem; font-size: 0.85rem;" onclick="copyBepSummary()">Metni Kopyala</button>
+          <button class="btn" style="padding: 0.32rem 0.7rem; font-size: 0.84rem;" onclick="copyBepSummary()">Metni Kopyala</button>
         </div>
         <p id="bepSummaryText">Henüz yeterli etkinlik verisi toplanmadı.</p>
       </div>
 
-      <h3 style="margin-top: 2rem; margin-bottom: 0.5rem; font-size: 1.2rem; font-weight: 900;">Öğrenci Etkinlik Geçmişi</h3>
+      <h3 style="margin-top: 1.8rem; margin-bottom: 0.5rem; font-size: 1.18rem; font-weight: 900;">Öğrenci Etkinlik Geçmişi</h3>
       <table class="report-table">
         <thead>
           <tr>
@@ -1118,7 +945,7 @@
   <!-- A4 YAZDIRMA ALANI -->
   <div id="worksheetPrintArea">
     <div class="ws-header">
-      <div><h2>TÜRKÇE OKUMA ÇALIŞMA YAPRAĞI</h2></div>
+      <div><h2>TÜRKÇE OKUDUĞUNU ANLAMA ÇALIŞMA YAPRAĞI</h2></div>
       <div style="text-align: right;"><p><strong>Öğrenci:</strong> <span id="wsStudentName"></span></p><p><strong>Tarih:</strong> <span id="wsDate"></span></p></div>
     </div>
     <div id="wsContentList"></div>
@@ -1127,72 +954,51 @@
   <!-- MODAL: ÖDEV VERME ALANI -->
   <div id="homeworkModal" class="modal-backdrop">
     <div class="modal-card" style="text-align: left; max-width: 620px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-        <h2 style="font-size: 1.45rem; font-weight: 900; color: var(--text-main);">📋 Öğrenciye Ödev Ver</h2>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.9rem;">
+        <h2 style="font-size: 1.4rem; font-weight: 900;">📋 Öğrenciye Ödev Ver</h2>
         <span class="level-tag" id="hwModalStudentName">Öğrenci</span>
       </div>
-      
-      <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1rem; font-weight: 700;">
+      <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 0.95rem; font-weight: 700;">
         Farklı türlerden istediğiniz sayıda ödev seçin. Öğrenci bir türü tamamladığında sistem otomatik olarak sıradaki ödev türüne geçer.
       </p>
-
       <div class="hw-assign-row">
-        <div>
-          <strong style="font-size: 1.05rem;">🎈 Tek Cümle Anlama</strong>
-          <div style="font-size: 0.85rem; color: var(--text-muted);">1. Adım: Cümle düzeyinde sorular</div>
-        </div>
+        <div><strong style="font-size: 1.02rem;">🎈 Tek Cümle Anlama</strong><div style="font-size: 0.84rem; color: var(--text-muted);">1. Adım: Cümle düzeyinde sorular</div></div>
         <div class="hw-counter-ctrl">
           <button class="hw-count-btn" onclick="adjustHwInput('sentence', -1)">-</button>
           <span class="hw-count-val" id="hwCount-sentence">3</span>
           <button class="hw-count-btn" onclick="adjustHwInput('sentence', 1)">+</button>
         </div>
       </div>
-
       <div class="hw-assign-row">
-        <div>
-          <strong style="font-size: 1.05rem;">🧩 Görsel Sıralama</strong>
-          <div style="font-size: 0.85rem; color: var(--text-muted);">2. Adım: Olayları sıraya dizme</div>
-        </div>
+        <div><strong style="font-size: 1.02rem;">🧩 Görsel Sıralama</strong><div style="font-size: 0.84rem; color: var(--text-muted);">2. Adım: Olayları sıraya dizme</div></div>
         <div class="hw-counter-ctrl">
           <button class="hw-count-btn" onclick="adjustHwInput('sequence', -1)">-</button>
           <span class="hw-count-val" id="hwCount-sequence">2</span>
           <button class="hw-count-btn" onclick="adjustHwInput('sequence', 1)">+</button>
         </div>
       </div>
-
       <div class="hw-assign-row">
-        <div>
-          <strong style="font-size: 1.05rem;">📖 5N1K Mini Hikâye</strong>
-          <div style="font-size: 0.85rem; color: var(--text-muted);">3. Adım: Kısa hikâye anlama</div>
-        </div>
+        <div><strong style="font-size: 1.02rem;">📖 5N1K Mini Hikâye</strong><div style="font-size: 0.84rem; color: var(--text-muted);">3. Adım: Kısa hikâye anlama</div></div>
         <div class="hw-counter-ctrl">
           <button class="hw-count-btn" onclick="adjustHwInput('story', -1)">-</button>
           <span class="hw-count-val" id="hwCount-story">2</span>
           <button class="hw-count-btn" onclick="adjustHwInput('story', 1)">+</button>
         </div>
       </div>
-
       <div class="hw-assign-row">
-        <div>
-          <strong style="font-size: 1.05rem;">🚀 Paragraf Okuma</strong>
-          <div style="font-size: 0.85rem; color: var(--text-muted);">4. Adım: Zengin metin anlama</div>
-        </div>
+        <div><strong style="font-size: 1.02rem;">🚀 Paragraf Okuma</strong><div style="font-size: 0.84rem; color: var(--text-muted);">4. Adım: Zengin metin anlama</div></div>
         <div class="hw-counter-ctrl">
           <button class="hw-count-btn" onclick="adjustHwInput('paragraph', -1)">-</button>
           <span class="hw-count-val" id="hwCount-paragraph">0</span>
           <button class="hw-count-btn" onclick="adjustHwInput('paragraph', 1)">+</button>
         </div>
       </div>
-
-      <div style="margin-top: 1rem;">
-        <label for="hwParentNoteInput" style="font-weight: 800; font-size: 0.98rem; display: block; margin-bottom: 0.4rem;">💌 Veli Notu / Yönerge (İsteğe Bağlı):</label>
-        <textarea id="hwParentNoteInput" placeholder="Örn: Merhaba, bu haftaki ödevleri öğrencimizle birlikte sesli okuyarak tamamlamanızı rica ederim..." class="btn" style="width: 100%; height: 75px; cursor: text; font-weight: 700;"></textarea>
+      <div style="margin-top: 0.9rem;">
+        <label for="hwParentNoteInput" style="font-weight: 800; font-size: 0.95rem; display: block; margin-bottom: 0.35rem;">💌 Veli Notu / Yönerge (İsteğe Bağlı):</label>
+        <textarea id="hwParentNoteInput" placeholder="Örn: Merhaba, bu haftaki ödevleri öğrencimizle birlikte sesli okuyarak tamamlamanızı rica ederim..." class="btn" style="width: 100%; height: 70px; cursor: text; font-weight: 700;"></textarea>
       </div>
-
-      <!-- Mevcut aktif ödev listesi (Silinebilir) -->
-      <div id="modalCurrentHomeworkList" style="margin-top: 1.1rem;"></div>
-
-      <div style="display: flex; justify-content: flex-end; gap: 0.6rem; margin-top: 1.35rem;">
+      <div id="modalCurrentHomeworkList" style="margin-top: 1rem;"></div>
+      <div style="display: flex; justify-content: flex-end; gap: 0.6rem; margin-top: 1.25rem;">
         <button class="btn" onclick="closeHomeworkModal()">Kapat</button>
         <button class="btn btn-primary" onclick="saveHomeworkAssignment()">✅ Ödevi Kaydet ve Ata</button>
       </div>
@@ -1202,8 +1008,8 @@
   <!-- MODAL: YENİ İÇERİK EKLE -->
   <div id="contentModal" class="modal-backdrop">
     <div class="modal-card" style="text-align: left; max-width: 580px;">
-      <h2 style="font-size: 1.4rem; margin-bottom: 0.75rem; font-weight: 900;">✏️ Yeni İçerik Ekle</h2>
-      <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+      <h2 style="font-size: 1.35rem; margin-bottom: 0.75rem; font-weight: 900;">✏️ Yeni İçerik Ekle</h2>
+      <div style="display: flex; flex-direction: column; gap: 0.7rem;">
         <select id="newContentCategory" class="btn" style="width: 100%; padding: 0.6rem;">
           <option value="sentence">Tek Cümle Anlama</option>
           <option value="story">Mini Hikâye</option>
@@ -1214,7 +1020,7 @@
         <input type="text" id="newContentCorrect" placeholder="Doğru Cevap" class="btn" style="width: 100%; border-color: var(--accent); cursor: text;">
         <input type="text" id="newContentWrong" placeholder="Yanlış Şıklar (Virgülle Ayırın)" class="btn" style="width: 100%; cursor: text;">
       </div>
-      <div style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 1.25rem;">
+      <div style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 1.2rem;">
         <button class="btn" onclick="closeCustomContentModal()">İptal</button>
         <button class="btn btn-primary" onclick="saveCustomContent()">Kaydet</button>
       </div>
@@ -1224,7 +1030,7 @@
   <!-- MODAL: ÖĞRENCİ YÖNETİMİ -->
   <div id="studentModal" class="modal-backdrop">
     <div class="modal-card" style="text-align: left; max-width: 520px;">
-      <h2 style="font-size: 1.4rem; margin-bottom: 0.75rem; font-weight: 900;">👥 Öğrenci Yönetimi</h2>
+      <h2 style="font-size: 1.35rem; margin-bottom: 0.75rem; font-weight: 900;">👥 Öğrenci Yönetimi</h2>
       <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
         <input type="text" id="newStudentInput" placeholder="Öğrenci Adı..." class="btn" style="flex:1; cursor: text;">
         <button class="btn btn-primary" onclick="submitNewStudent()">Ekle</button>
@@ -1240,18 +1046,896 @@
   <div id="reinforceModal" class="modal-backdrop">
     <div class="modal-card">
       <div class="modal-icon" id="reinforceIcon">🌟</div>
-      <h2 id="reinforceTitle" style="margin-bottom: 0.5rem; font-size: 1.8rem; font-weight: 900;">Tebrikler!</h2>
-      <p id="reinforceDesc" style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1.15rem; font-weight: 700;">Doğru cevabı buldun.</p>
-      <button class="btn btn-primary" style="width: 100%; padding: 0.95rem; font-size: 1.2rem; justify-content: center;" onclick="closeModal()">Devam Et ➔</button>
+      <h2 id="reinforceTitle" style="margin-bottom: 0.5rem; font-size: 1.75rem; font-weight: 900;">Tebrikler!</h2>
+      <p id="reinforceDesc" style="color: var(--text-muted); margin-bottom: 1.4rem; font-size: 1.12rem; font-weight: 700;">Doğru cevabı buldun.</p>
+      <button class="btn btn-primary" style="width: 100%; padding: 0.9rem; font-size: 1.18rem; justify-content: center;" onclick="closeModal()">Devam Et ➔</button>
     </div>
   </div>
 
   <script>
     // =========================================================================
-    // VERİTABANI & KURULUM
+    // 1. UYGULAMA İKONU MOTORU (iOS, Android, Tablet ve PC Ana Ekran Desteği)
+    // =========================================================================
+    function setupHighResAppIcons() {
+      const svgIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <defs>
+          <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1e1b4b"/>
+            <stop offset="50%" stop-color="#312e81"/>
+            <stop offset="100%" stop-color="#0f172a"/>
+          </linearGradient>
+          <linearGradient id="bulb" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fde047"/>
+            <stop offset="100%" stop-color="#f59e0b"/>
+          </linearGradient>
+          <linearGradient id="book" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#38bdf8"/>
+            <stop offset="50%" stop-color="#818cf8"/>
+            <stop offset="100%" stop-color="#c084fc"/>
+          </linearGradient>
+        </defs>
+        <rect width="512" height="512" rx="110" fill="url(#bg)"/>
+        <rect x="18" y="18" width="476" height="476" rx="96" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="8"/>
+        <circle cx="256" cy="185" r="92" fill="#fbbf24" opacity="0.22"/>
+        <circle cx="148" cy="180" r="28" fill="#f97316" opacity="0.85"/>
+        <circle cx="148" cy="180" r="12" fill="#1e1b4b"/>
+        <circle cx="364" cy="165" r="30" fill="#2dd4bf" opacity="0.85"/>
+        <circle cx="364" cy="165" r="13" fill="#1e1b4b"/>
+        <path d="M256 102 C212 102 182 134 182 176 C182 206 200 230 222 248 L222 272 Q222 280 230 280 L282 280 Q290 280 290 272 L290 248 C312 230 330 206 330 176 C330 134 300 102 256 102 Z" fill="url(#bulb)"/>
+        <path d="M242 180 L242 245 M270 180 L270 245 M236 180 Q256 160 276 180" stroke="#92400e" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <rect x="230" y="286" width="52" height="12" rx="6" fill="#cbd5e1"/>
+        <rect x="238" y="302" width="36" height="10" rx="5" fill="#94a3b8"/>
+        <path d="M74 382 C138 342 218 348 256 382 C294 348 374 342 438 382 L438 410 C374 370 294 374 256 410 C218 374 138 370 74 410 Z" fill="#f43f5e"/>
+        <path d="M74 352 C138 308 218 314 256 352 C294 314 374 308 438 352 L438 386 C374 346 294 346 256 386 C218 346 138 346 74 386 Z" fill="url(#book)"/>
+        <path d="M256 348 L256 412" stroke="#ffffff" stroke-width="8" stroke-linecap="round"/>
+        <polygon points="256,46 264,66 285,68 269,82 274,102 256,90 238,102 243,82 227,68 248,66" fill="#fef08a"/>
+        <circle cx="116" cy="122" r="8" fill="#fef08a"/>
+        <circle cx="396" cy="112" r="10" fill="#fef08a"/>
+      </svg>`;
+
+      const svgDataUrl = 'data:image/svg+xml;utf8,' + encodeURIComponent(svgIcon);
+      const splashImg = document.getElementById('splashLogoImg');
+      if (splashImg) splashImg.src = svgDataUrl;
+
+      const img = new Image();
+      img.onload = function() {
+        try {
+          const canvas = document.createElement('canvas');
+          canvas.width = 512;
+          canvas.height = 512;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, 512, 512);
+          const pngDataUrl = canvas.toDataURL('image/png');
+          
+          const appleLink = document.getElementById('appleTouchIconLink');
+          if (appleLink) appleLink.href = pngDataUrl;
+          const favLink = document.getElementById('faviconLink');
+          if (favLink) favLink.href = pngDataUrl;
+
+          const manifest = {
+            name: "Türkçe Okuduğunu Anlama Portalı",
+            short_name: "Okuma Portalı",
+            start_url: ".",
+            display: "standalone",
+            background_color: "#f0fdf4",
+            theme_color: "#312e81",
+            icons: [
+              { src: pngDataUrl, sizes: "192x192", type: "image/png" },
+              { src: pngDataUrl, sizes: "512x512", type: "image/png" }
+            ]
+          };
+          const manifestBlob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
+          const manifestLink = document.createElement('link');
+          manifestLink.rel = 'manifest';
+          manifestLink.href = URL.createObjectURL(manifestBlob);
+          document.head.appendChild(manifestLink);
+        } catch (e) {}
+      };
+      img.src = svgDataUrl;
+    }
+
+    // =========================================================================
+    // 2. ZENGİN KARAKTER HAVUZU (36 KİŞİ - TÜRKÇE ÇEKİM EKLERİ %100 UYUMLU)
+    // =========================================================================
+    const CHARACTER_POOL = [
+      { nom: "Ali", gen: "Ali'nin", dat: "Ali'ye", acc: "Ali'yi" },
+      { nom: "Zeynep", gen: "Zeynep'in", dat: "Zeynep'e", acc: "Zeynep'i" },
+      { nom: "Kerem", gen: "Kerem'in", dat: "Kerem'e", acc: "Kerem'i" },
+      { nom: "Elif", gen: "Elif'in", dat: "Elif'e", acc: "Elif'i" },
+      { nom: "Can", gen: "Can'ın", dat: "Can'a", acc: "Can'ı" },
+      { nom: "Defne", gen: "Defne'nin", dat: "Defne'ye", acc: "Defne'yi" },
+      { nom: "Mert", gen: "Mert'in", dat: "Mert'e", acc: "Mert'i" },
+      { nom: "Ayşe", gen: "Ayşe'nin", dat: "Ayşe'ye", acc: "Ayşe'yi" },
+      { nom: "Emre", gen: "Emre'nin", dat: "Emre'ye", acc: "Emre'yi" },
+      { nom: "Selin", gen: "Selin'in", dat: "Selin'e", acc: "Selin'i" },
+      { nom: "Burak", gen: "Burak'ın", dat: "Burak'a", acc: "Burak'ı" },
+      { nom: "Aslı", gen: "Aslı'nın", dat: "Aslı'ya", acc: "Aslı'yı" },
+      { nom: "Efe", gen: "Efe'nin", dat: "Efe'ye", acc: "Efe'yi" },
+      { nom: "Merve", gen: "Merve'nin", dat: "Merve'ye", acc: "Merve'yi" },
+      { nom: "Arda", gen: "Arda'nın", dat: "Arda'ya", acc: "Arda'yı" },
+      { nom: "İpek", gen: "İpek'in", dat: "İpek'e", acc: "İpek'i" },
+      { nom: "Ozan", gen: "Ozan'ın", dat: "Ozan'a", acc: "Ozan'ı" },
+      { nom: "Pelin", gen: "Pelin'in", dat: "Pelin'e", acc: "Pelin'i" },
+      { nom: "Kaan", gen: "Kaan'ın", dat: "Kaan'a", acc: "Kaan'ı" },
+      { nom: "Ece", gen: "Ece'nin", dat: "Ece'ye", acc: "Ece'yi" },
+      { nom: "Bora", gen: "Bora'nın", dat: "Bora'ya", acc: "Bora'yı" },
+      { nom: "Lale", gen: "Lale'nin", dat: "Lale'ye", acc: "Lale'yi" },
+      { nom: "Murat", gen: "Murat'ın", dat: "Murat'a", acc: "Murat'ı" },
+      { nom: "Nil", gen: "Nil'in", dat: "Nil'e", acc: "Nil'i" },
+      { nom: "Eren", gen: "Eren'in", dat: "Eren'e", acc: "Eren'i" },
+      { nom: "Oya", gen: "Oya'nın", dat: "Oya'ya", acc: "Oya'yı" },
+      { nom: "Umut", gen: "Umut'un", dat: "Umut'a", acc: "Umut'u" },
+      { nom: "Duru", gen: "Duru'nun", dat: "Duru'ya", acc: "Duru'yu" },
+      { nom: "Sinan", gen: "Sinan'ın", dat: "Sinan'a", acc: "Sinan'ı" },
+      { nom: "Ceren", gen: "Ceren'in", dat: "Ceren'e", acc: "Ceren'i" },
+      { nom: "Tolga", gen: "Tolga'nın", dat: "Tolga'ya", acc: "Tolga'yı" },
+      { nom: "Seda", gen: "Seda'nın", dat: "Seda'ya", acc: "Seda'yı" },
+      { nom: "Doruk", gen: "Doruk'un", dat: "Doruk'a", acc: "Doruk'u" },
+      { nom: "Yağmur", gen: "Yağmur'un", dat: "Yağmur'a", acc: "Yağmur'u" },
+      { nom: "Çınar", gen: "Çınar'ın", dat: "Çınar'a", acc: "Çınar'ı" },
+      { nom: "Gökçe", gen: "Gökçe'nin", dat: "Gökçe'ye", acc: "Gökçe'yi" }
+    ];
+
+    // =========================================================================
+    // 3. 30 FARKLI OLAY VE ÇOKLU VARYASYON HAVUZU (%100 METİN-SORU UYUMLU)
+    // =========================================================================
+    const SCENARIO_TEMPLATES = [
+      {
+        id: 1,
+        variants: [
+          { itemAcc: "kırmızı elmayı", itemWrong: ["sarı muzu", "yeşil erikleri", "sulu şeftaliyi"], food: "taze ekmek", foodWrong: ["beyaz peynir", "siyah zeytin", "çilek reçeli"], act: "resim çizdiler", actWrong: ["ip atladılar", "saklambaç oynadılar", "film izlediler"] },
+          { itemAcc: "sulu armudu", itemWrong: ["kırmızı çileği", "ekşi limonu", "tatlı kavunu"], food: "cevizli peynir", foodWrong: ["kızarmış ekmek", "haşlanmış yumurta", "yeşil zeytin"], act: "yapboz yaptılar", actWrong: ["top oynadılar", "şarkı söylediler", "uyudular"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} mutfak masasında duran ${V.itemAcc} bol suyla yıkadı.`,
+          story: `Öğle yemeği vakti gelmişti. ${H.nom} mutfak masasında duran ${V.itemAcc} bol suyla yıkadı. Ardından tabağına ${V.food} koydu.`,
+          paragraph: `Güneş mutfak penceresinden içeri tatlı bir ışık dolduruyordu. ${H.nom} masada duran ${V.itemAcc} yıkadı. Arkadaşı ${F.nom} odadan yanına geldi. İkisi birlikte meyve yiyip neşeyle ${V.act}.`,
+          questions: {
+            sentence: [
+              { qRoot: "Neyi", q: `${H.nom} masada duran neyi yıkadı?`, ans: V.itemAcc, wrong: V.itemWrong },
+              { qRoot: "Kim", q: `Mutfak masasındaki ${V.itemAcc} kim yıkadı?`, ans: H.nom, wrong: [F.nom, "Annesi", "Kardeşi"] }
+            ],
+            story: [
+              { qRoot: "Ne", q: `${H.nom} tabağına ne koydu?`, ans: V.food, wrong: V.foodWrong },
+              { qRoot: "Ne zaman", q: `${H.nom} meyveyi ne zaman yıkadı?`, ans: "öğle yemeği vakti", wrong: ["gece yarısı", "sabah uyanınca", "yatmadan önce"] }
+            ],
+            paragraph: [
+              { qRoot: "Kim", q: `Mutfakta ${H.gen} yanına kim geldi?`, ans: F.nom, wrong: ["Öğretmeni", "Komşusu", "Dedeleri"] },
+              { qRoot: "Ne", q: `${H.nom} ve ${F.nom} meyve yedikten sonra birlikte ne yaptılar?`, ans: V.act, wrong: V.actWrong }
+            ]
+          }
+        })
+      },
+      {
+        id: 2,
+        variants: [
+          { coat: "kalın montunu", coatWrong: ["ince gömleğini", "yazlık tişörtünü", "kısa şortunu"], closeItem: "açık pencereleri", closeWrong: ["televizyonu", "buzdolabını", "oda kapısını"], hat: "yün berelerini", hatWrong: ["güneş gözlüklerini", "hasır şapkalarını", "patenlerini"] },
+          { coat: "mavi yağmurluğunu", coatWrong: ["okul formasını", "spor ceketini", "pijamasını"], closeItem: "balkon kapısını", closeWrong: ["bilgisayarı", "su musluğunu", "kitaplığı"], hat: "su geçirmez botlarını", hatWrong: ["plaj terliklerini", "sandaletlerini", "eldivenlerini"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} dışarıda soğuk rüzgar çıkınca hemen ${V.coat} giydi.`,
+          story: `Hava aniden soğumuştu. ${H.nom} dışarıda rüzgar çıkınca hemen ${V.coat} giydi. Üşümemek için ${V.closeItem} de sıkıca kapattı.`,
+          paragraph: `Sonbahar yaprakları sokaklarda savruluyordu. Rüzgar çıkınca ${H.nom} hemen ${V.coat} giydi. Arkadaşı ${F.nom} bahçeden ona seslendi. İkisi soğuktan korunmak için ${V.hat} giydiler.`,
+          questions: {
+            sentence: [
+              { qRoot: "Ne", q: `${H.nom} soğuk rüzgar çıkınca ne giydi?`, ans: V.coat, wrong: V.coatWrong },
+              { qRoot: "Neden", q: `${H.nom} neden ${V.coat} giydi?`, ans: "soğuk rüzgar çıkınca", wrong: ["hava çok sıcak olduğu için", "denize girmek için", "uyumak için"] }
+            ],
+            story: [
+              { qRoot: "Neyi", q: `${H.nom} üşümemek için neyi sıkıca kapattı?`, ans: V.closeItem, wrong: V.closeWrong }
+            ],
+            paragraph: [
+              { qRoot: "Kim", q: `Bahçeden ${H.dat} seslenen arkadaşı kimdi?`, ans: F.nom, wrong: ["Postacı", "Okul müdürü", "Ağabeyi"] },
+              { qRoot: "Ne", q: `İki arkadaş soğuktan korunmak için ne giydiler?`, ans: V.hat, wrong: V.hatWrong }
+            ]
+          }
+        })
+      },
+      {
+        id: 3,
+        variants: [
+          { book: "resimli masal kitabı", bookWrong: ["boyama defteri", "spor dergisi", "dünya haritası"], seat: "yeşil sandalyeye", seatWrong: ["kırmızı koltuğa", "mavi mindere", "tahta tabureye"], topic: "uzay hikayelerini", topicWrong: ["yemek tariflerini", "futbol kurallarını", "çiçek isimlerini"] },
+          { book: "bilim çocuk dergisi", bookWrong: ["müzik defteri", "hikaye sözlüğü", "bulmaca gazetesi"], seat: "pencere önündeki koltuğa", seatWrong: ["bahçe bankına", "merdiven basamağına", "halının üstüne"], topic: "dinozor resimlerini", topicWrong: ["araba yarışlarını", "çizgi filmleri", "kış masallarını"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} okulun sessiz kütüphanesinden ${V.book} seçti.`,
+          story: `Ders zili henüz çalmamıştı. ${H.nom} okul kütüphanesinden ${V.book} seçti. Köşedeki ${V.seat} oturup sayfaları dikkatle çevirdi.`,
+          paragraph: `Okulun en huzurlu yeri kütüphaneydi. ${H.nom} raftan ${V.book} seçti. Yan masada oturan arkadaşı ${F.nom} ona gülümsedi. Birlikte sayfaları açıp ${V.topic} incelediler.`,
+          questions: {
+            sentence: [
+              { qRoot: "Nereden", q: `${H.nom} ${V.book} nereden seçti?`, ans: "okulun sessiz kütüphanesinden", wrong: ["kalabalık kantinden", "spor salonundan", "okul bahçesinden"] },
+              { qRoot: "Ne", q: `${H.nom} kütüphaneden ne seçti?`, ans: V.book, wrong: V.bookWrong }
+            ],
+            story: [
+              { qRoot: "Nereye", q: `${H.nom} kitabı okurken nereye oturdu?`, ans: V.seat, wrong: V.seatWrong }
+            ],
+            paragraph: [
+              { qRoot: "Kim", q: `Yan masadan ${H.dat} gülümseyen kimdi?`, ans: F.nom, wrong: ["Kütüphane görevlisi", "Sınıf öğretmeni", "Kardeşi"] },
+              { qRoot: "Neyi", q: `${H.nom} ve ${F.nom} birlikte neyi incelediler?`, ans: V.topic, wrong: V.topicWrong }
+            ]
+          }
+        })
+      },
+      {
+        id: 4,
+        variants: [
+          { animalDat: "yavru kediye", animalWrong: ["sarı kanaryaya", "yeşil kaplumbağaya", "beyaz ördeğe"], food: "ılık süt", foodWrong: ["kuru mısır", "taze marul", "havuç dilimi"], react: "neşeyle miyavladı", reactWrong: ["hızla uçtu", "ağaca tırmandı", "suya daldı"] },
+          { animalDat: "sevimli köpeğe", animalWrong: ["küçük balığa", "renkli papağana", "beyaz tavşana"], food: "kemikli mama", foodWrong: ["buğday tanesi", "yeşil yaprak", "peynirli tost"], react: "kuyruğunu salladı", reactWrong: ["kanat çırptı", "miyavladı", "kafese girdi"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} soğuk kış gününde bahçe kapısındaki ${V.animalDat} ${V.food} verdi.`,
+          story: `Sokaktaki hayvanlar kışın yiyecek bulmakta zorlanıyordu. ${H.nom} bahçe kapısındaki ${V.animalDat} bir kap ${V.food} verdi. Karnı doyan hayvan ${V.react}.`,
+          paragraph: `Yerlerde ince bir kar tabakası vardı. ${H.nom} kapıdaki ${V.animalDat} ${V.food} verdi. Sokaktan geçen arkadaşı ${F.nom} da elinde su kabıyla yanlarına geldi. İkisi hayvan için sıcak bir kulübe hazırladılar.`,
+          questions: {
+            sentence: [
+              { qRoot: "Kime", q: `${H.nom} kış gününde neye/kime yiyecek verdi?`, ans: V.animalDat, wrong: V.animalWrong },
+              { qRoot: "Ne", q: `${H.nom} kapıdaki ${V.animalDat} ne verdi?`, ans: V.food, wrong: V.foodWrong }
+            ],
+            story: [
+              { qRoot: "Ne", q: `Karnı doyan hayvan ne yaptı?`, ans: V.react, wrong: V.reactWrong }
+            ],
+            paragraph: [
+              { qRoot: "Kim", q: `Elinde su kabıyla ${H.gen} yanına kim geldi?`, ans: F.nom, wrong: ["Veteriner", "Muhtar", "Postacı"] },
+              { qRoot: "Ne", q: `${H.nom} ve ${F.nom} hayvan için birlikte ne hazırladılar?`, ans: "sıcak bir kulübe", wrong: ["büyük bir kafes", "cam akvaryum", "tahta salıncak"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 5,
+        variants: [
+          { place: "çocuk parkındaki salıncakta", placeWrong: ["evin balkonunda", "sınıf sırasının üstünde", "market arabasının içinde"], time: "bahar akşamı", timeWrong: ["kış sabahı", "gece yarısı", "yağmurlu öğlen"], game: "saklambaç", gameWrong: ["masa tenisi", "satranç", "voleybol"] },
+          { place: "okul bahçesindeki tahterevallide", placeWrong: ["kütüphane koltuğunda", "mutfak masasında", "otobüs durağında"], time: "cumartesi öğleden sonra", timeWrong: ["pazartesi sabahı", "gece vakti", "kar yağarken"], game: "yakantop", gameWrong: ["bilgisayar oyunu", "körebe", "basketbol"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} ${V.place} neşeyle sallandı.`,
+          story: `Güzel bir ${V.time} vaktiydi. ${H.nom} ${V.place} neşeyle sallandı. Tatlı esen rüzgar yüzünü serinletti.`,
+          paragraph: `Parkta neşeli çocuk sesleri yankılanıyordu. ${H.nom} ${V.place} sallandı. Biraz sonra arkadaşı ${F.nom} koşarak yanına geldi. İkisi yeşil çimenlerin üzerinde ${V.game} oynadılar.`,
+          questions: {
+            sentence: [
+              { qRoot: "Nerede", q: `${H.nom} nerede neşeyle sallandı?`, ans: V.place, wrong: V.placeWrong }
+            ],
+            story: [
+              { qRoot: "Ne zaman", q: `Bu olay ne zaman gerçekleşti?`, ans: V.time, wrong: V.timeWrong }
+            ],
+            paragraph: [
+              { qRoot: "Ne", q: `${H.nom} ve ${F.nom} çimenlerin üzerinde ne oynadılar?`, ans: V.game, wrong: V.gameWrong },
+              { qRoot: "Kim", q: `Parkta koşarak ${H.gen} yanına kim geldi?`, ans: F.nom, wrong: ["Dedesi", "Bekçi amca", "Kardeşi"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 6,
+        variants: [
+          { count: "üç kilo mandalina", countWrong: ["beş tane karpuz", "bir salkım üzüm", "iki kutu çilek"], reason: "evde meyve kalmadığı için", reasonWrong: ["oyuncak almak için", "kitap okumak için", "çiçek dikmek için"], extra: "taze muz", extraWrong: ["çikolatalı gofret", "dondurma", "patates cipsi"] },
+          { count: "dört tane sulu şeftali", countWrong: ["on kilo patates", "bir kasa limon", "yarım kavun"], reason: "misafirlere meyve ikram etmek için", reasonWrong: ["resim çizmek için", "okula götürmek için", "kuşlara vermek için"], extra: "tatlı kiraz", extraWrong: ["tuzlu kraker", "soğuk gazoz", "beyaz peynir"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} mahalle manavından ${V.count} satın aldı.`,
+          story: `${H.nom} ${V.reason} mahalle manavına gitti. Kasalardan seçerek ${V.count} satın aldı. Meyveleri bez çantasına koyup parasını ödedi.`,
+          paragraph: `Pazar yeri oldukça hareketliydi. ${H.nom} manavdan ${V.count} aldı. Tezgâhın önünde arkadaşı ${F.nom} ile karşılaştı. İkisi birlikte ${V.extra} da alıp evlerine döndüler.`,
+          questions: {
+            sentence: [
+              { qRoot: "Ne kadar", q: `${H.nom} manavdan ne kadar meyve satın aldı?`, ans: V.count, wrong: V.countWrong }
+            ],
+            story: [
+              { qRoot: "Neden", q: `${H.nom} neden mahalle manavına gitti?`, ans: V.reason, wrong: V.reasonWrong }
+            ],
+            paragraph: [
+              { qRoot: "Kiminle", q: `${H.nom} manav tezgâhının önünde kiminle karşılaştı?`, ans: F.nom, wrong: ["Öğretmeniyle", "Komşu teyzeyle", "Amcasıyla"] },
+              { qRoot: "Ne", q: `${H.nom} ve ${F.nom} birlikte başka ne aldılar?`, ans: V.extra, wrong: V.extraWrong }
+            ]
+          }
+        })
+      },
+      {
+        id: 7,
+        variants: [
+          { vehicle: "kırmızı bisikletiyle", vehWrong: ["mavi pateniyle", "sarı scooterıyla", "ahşap kaykayıyla"], restPlace: "deniz kenarındaki bankta", restWrong: ["ağacın altında", "otobüs durağında", "evin terasında"], dest: "limonata büfesine", destWrong: ["kütüphaneye", "kırtasiyeye", "sinemaya"] },
+          { vehicle: "mavi scooterıyla", vehWrong: ["yeşil bisikletiyle", "koşu ayakkabısıyla", "bebek arabasıyla"], restPlace: "çınar ağacının gölgesinde", restWrong: ["kumsalda", "okul kantine", "arabanın içinde"], dest: "dondurmacıya", destWrong: ["eczacının yanına", "berbere", "fırına"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} ${V.vehicle} sahil yolunda dikkatlice ilerledi.`,
+          story: `Hafta sonu hava çok güneşliydi. ${H.nom} ${V.vehicle} sahil yolunda ilerledi. Yorulunca ${V.restPlace} oturup biraz dinlendi.`,
+          paragraph: `Martılar gökyüzünde süzülüyordu. ${H.nom} ${V.vehicle} sahilde geziyordu. Karşıdan gelen arkadaşı ${F.nom} ona el salladı. Birlikte serinlemek için ${V.dest} gittiler.`,
+          questions: {
+            sentence: [
+              { qRoot: "Ne ile", q: `${H.nom} sahil yolunda ne ile ilerledi?`, ans: V.vehicle, wrong: V.vehWrong }
+            ],
+            story: [
+              { qRoot: "Nerede", q: `${H.nom} yorulunca nerede dinlendi?`, ans: V.restPlace, wrong: V.restWrong }
+            ],
+            paragraph: [
+              { qRoot: "Nereye", q: `${H.nom} ve ${F.nom} serinlemek için nereye gittiler?`, ans: V.dest, wrong: V.destWrong },
+              { qRoot: "Kim", q: `Sahilde karşıdan gelip el sallayan kimdi?`, ans: F.nom, wrong: ["Kaptan", "Balıkçı", "Polis"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 8,
+        variants: [
+          { time: "sabah erkenden", timeWrong: ["gece yarısı", "öğle sıcağında", "akşam karanlığında"], plant: "renkli sardunyaları", plantWrong: ["kuru dalları", "plastik çiçekleri", "çimenleri"], smell: "ıslak toprak kokusu", smellWrong: ["yemek kokusu", "parfüm kokusu", "boya kokusu"] },
+          { time: "ikindi vakti", timeWrong: ["şafak sökerken", "geceleyin", "ders saatinde"], plant: "kokulu fesleğenleri", plantWrong: ["yapay gülleri", "çam ağaçlarını", "buğday başaklarını"], smell: "taze yaprak kokusu", smellWrong: ["duman kokusu", "sabun kokusu", "benzin kokusu"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} balkondaki saksılarda duran ${V.plant} ${V.time} suladı.`,
+          story: `Saksıdaki çiçekler yeni açmıştı. ${H.nom} balkondaki ${V.plant} ${V.time} suladı. Etrafa yayılan ${V.smell} onu çok mutlu etti.`,
+          paragraph: `Balkon rengârenk çiçeklerle doluydu. ${H.nom} ${V.time} saksıdaki ${V.plant} suladı. Yan balkondan komşuları ${F.nom} ona seslendi. İkisi çiçeklerin bakımı hakkında sohbet ettiler.`,
+          questions: {
+            sentence: [
+              { qRoot: "Ne zaman", q: `${H.nom} balkondaki çiçekleri ne zaman suladı?`, ans: V.time, wrong: V.timeWrong },
+              { qRoot: "Neyi", q: `${H.nom} saksılarda duran neyi suladı?`, ans: V.plant, wrong: V.plantWrong }
+            ],
+            story: [
+              { qRoot: "Ne", q: `Çiçekler sulanınca etrafa yayılan ne ${H.acc} mutlu etti?`, ans: V.smell, wrong: V.smellWrong }
+            ],
+            paragraph: [
+              { qRoot: "Kim", q: `Yan balkondan ${H.dat} seslenen kimdi?`, ans: F.nom, wrong: ["Bahçıvan", "Postacı", "Okul müdürü"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 9,
+        variants: [
+          { color: "sarı benekli", colWrong: ["kırmızı çizgili", "mavi kareli", "simsiyah"], reason: "ayakkabıları ıslanmasın diye", reasWrong: ["boyu uzasın diye", "koşu yarışını kazanmak için", "kelebek yakalamak için"] },
+          { color: "turuncu renkli", colWrong: ["mor çiçekli", "bembeyaz", "yeşil desenli"], reason: "pantolonu çamur olmasın diye", reasWrong: ["dans etmek için", "topa vurmak için", "ip atlamak için"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} yağmur başlayınca ${V.color} şemsiyesini açtı.`,
+          story: `Gökyüzü kara bulutlarla kaplandı. ${H.nom} yağmur başlayınca ${V.color} şemsiyesini açtı. Yolda yürürken ${V.reason} su birikintilerinin üzerinden atladı.`,
+          paragraph: `Sağanak yağmur sokakları yıkıyordu. ${H.nom} hemen ${V.color} şemsiyesini açtı. Durağın önünde şemsiyesiz bekleyen arkadaşı ${F.acc} gördü. Onu ıslanmaması için kendi şemsiyesinin altına davet etti.`,
+          questions: {
+            sentence: [
+              { qRoot: "Nasıl", q: `${H.gen} açtığı şemsiye nasıldı?`, ans: V.color, wrong: V.colWrong }
+            ],
+            story: [
+              { qRoot: "Neden", q: `${H.nom} neden su birikintilerinin üzerinden atladı?`, ans: V.reason, wrong: V.reasWrong }
+            ],
+            paragraph: [
+              { qRoot: "Kimi", q: `${H.nom} şemsiyesinin altına kimi davet etti?`, ans: F.acc, wrong: ["otobüs şoförünü", "market görevlisini", "sokak kedisini"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 10,
+        variants: [
+          { cake: "çikolatalı pasta", cakeWrong: ["peynirli börek", "elmalı turta", "tuzlu kurabiye"], decor: "renkli şekerlemelerle", decWrong: ["siyah zeytinlerle", "maydanoz yapraklarıyla", "susam taneleriyle"], helper: "annesiyle", helpWrong: ["öğretmeniyle", "komşusuyla", "tek başına"] },
+          { cake: "çilekli yaş pasta", cakeWrong: ["patatesli poğaça", "mercimek çorbası", "mısırlı salata"], decor: "Hindistan ceviziyle", decWrong: ["kırmızı biberle", "tuzla", "nane yaprağıyla"], helper: "ablasıyla", helpWrong: ["doktorla", "amcasıyla", "yalnız başına"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} mutfakta ${V.helper} birlikte lezzetli bir ${V.cake} yaptı.`,
+          story: `Bugün evde kutlama vardı. ${H.nom} mutfakta ${V.helper} birlikte ${V.cake} yaptı. Pastanın üzerini özenle ${V.decor} süslediler.`,
+          paragraph: `Evde tatlı bir hazırlık vardı. ${H.nom} ${V.helper} ${V.cake} yaptı. Fırından çıkan kekin kokusu tüm eve yayıldı. Akşam olunca arkadaşı ${F.nom} elinde güzel bir hediye paketiyle kutlamaya geldi.`,
+          questions: {
+            sentence: [
+              { qRoot: "Kiminle", q: `${H.nom} pastayı mutfakta kiminle birlikte yaptı?`, ans: V.helper, wrong: V.helpWrong },
+              { qRoot: "Ne", q: `${H.nom} mutfakta ne yaptı?`, ans: V.cake, wrong: V.cakeWrong }
+            ],
+            story: [
+              { qRoot: "Ne ile", q: `Pastanın üzerini ne ile süslediler?`, ans: V.decor, wrong: V.decWrong }
+            ],
+            paragraph: [
+              { qRoot: "Kim", q: `Akşam elinde hediye paketiyle kutlamaya kim geldi?`, ans: F.nom, wrong: ["Postacı", "Fırıncı", "Okul müdürü"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 11,
+        variants: [
+          { place: "geniş kırda", placeWrong: ["dar koridorda", "evin çatısında", "sınıfın içinde"], kite: "kırmızı kuyruklu uçurtmasını", kiteWrong: ["kağıt uçağını", "plastik topunu", "tahta gemisini"], watch: "pamuk gibi beyaz bulutları", watchWrong: ["denizdeki gemileri", "sokaktaki arabaları", "televizyon ekranını"] },
+          { place: "yeşil tepede", placeWrong: ["bodrum katında", "kütüphanede", "marketin içinde"], kite: "mavi yıldızlı uçurtmasını", kiteWrong: ["bisikletini", "okul çantasını", "boya kalemlerini"], watch: "gökyüzünde süzülen kırlangıçları", watchWrong: ["akvaryumdaki balıkları", "yerdeki karıncaları", "kitaptaki harfleri"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} ${V.place} ${V.kite} gökyüzüne doğru uçurdu.`,
+          story: `Bahar rüzgarı tatlı tatlı esiyordu. ${H.nom} ${V.place} ${V.kite} uçurdu. İpi tutarken gökyüzündeki ${V.watch} hayranlıkla izledi.`,
+          paragraph: `Hava uçurtma uçurmak için çok uygundu. ${H.nom} ${V.place} ${V.kite} havalandırdı. Yanına mahalleden arkadaşı ${F.nom} geldi ve birlikte uçurtmanın ipini sırayla tuttular.`,
+          questions: {
+            sentence: [
+              { qRoot: "Nerede", q: `${H.nom} uçurtmasını nerede uçurdu?`, ans: V.place, wrong: V.placeWrong },
+              { qRoot: "Neyi", q: `${H.nom} gökyüzüne doğru neyi uçurdu?`, ans: V.kite, wrong: V.kiteWrong }
+            ],
+            story: [
+              { qRoot: "Neyi", q: `${H.nom} ipi tutarken gökyüzünde neyi izledi?`, ans: V.watch, wrong: V.watchWrong }
+            ],
+            paragraph: [
+              { qRoot: "Kim", q: `Uçurtma uçururken ${H.gen} yanına kim geldi?`, ans: F.nom, wrong: ["Babası", "Polis memuru", "Doktor"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 12,
+        variants: [
+          { companion: "dedesiyle birlikte", compWrong: ["yalnız başına", "otobüs şoförüyle", "postacıyla"], catchItem: "parlak pullu büyük bir balık", catchWrong: ["eski bir çizme", "plastik şişe", "kırmızı şemsiye"], seaState: "masmavi ve çok sakindi", seaWrong: ["fırtınalı ve karanlıktı", "buz tutmuştu", "çamurlu ve sığdı"] },
+          { companion: "babasıyla birlikte", compWrong: ["doktorla birlikte", "tek başına", "fırıncıyla"], catchItem: "iki tane taze istavrit", catchWrong: ["araba lastiği", "tahta parçası", "cam kavanoz"], seaState: "çarşaf gibi dümdüzdü", seaWrong: ["dev dalgalarla doluydu", "çok kirliydi", "kurumuştu"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} sabah ${V.companion} küçük tekneyle denizde balık tuttu.`,
+          story: `Sabah erkenden limandan ayrıldılar. ${H.nom} ${V.companion} denizde balık tuttu. Çok geçmeden oltasına ${V.catchItem} takıldı.`,
+          paragraph: `O gün deniz ${V.seaState}. ${H.nom} ${V.companion} tekneyle balık tutuyordu. Kıyıda yürüyen arkadaşı ${F.nom} onlara neşeyle el salladı.`,
+          questions: {
+            sentence: [
+              { qRoot: "Kiminle", q: `${H.nom} denizde kiminle balık tuttu?`, ans: V.companion, wrong: V.compWrong }
+            ],
+            story: [
+              { qRoot: "Ne", q: `${H.gen} oltasına ne takıldı?`, ans: V.catchItem, wrong: V.catchWrong }
+            ],
+            paragraph: [
+              { qRoot: "Nasıl", q: `O gün deniz nasıldı?`, ans: V.seaState, wrong: V.seaWrong },
+              { qRoot: "Kim", q: `Kıyıdan onlara neşeyle el sallayan kimdi?`, ans: F.nom, wrong: ["Bekçi", "İtfaiyeci", "Komşu"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 13,
+        variants: [
+          { drawMain: "rengârenk bir gökkuşağı", drawWrong: ["kocaman bir kamyon", "korkunç bir dev", "karanlık bir mağara"], closeObj: "boya kalemlerinin kutusunu", closeWrong: ["sınıfın kapısını", "su şişesini", "pencere perdesini"], drawFriend: "parlayan sarı bir güneş", friendWrong: ["karlı bir dağ", "siyah bir şemsiye", "kırık bir vazo"] },
+          { drawMain: "yemyeşil bir çam ormanı", drawWrong: ["uçan bir halı", "uzay istasyonu", "denizaltı gemisi"], closeObj: "sulu boya paletinin kapağını", closeWrong: ["okul çantasının fermuarını", "not defterini", "kalemtraşı"], drawFriend: "mavi kanatlı kelebekler", friendWrong: ["kırmızı itfaiye aracı", "büyük bir apartman", "futbol topu"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} resim dersinde beyaz kâğıda ${V.drawMain} çizdi.`,
+          story: `Resim dersi yeni başlamıştı. ${H.nom} beyaz kâğıda özenle ${V.drawMain} çizdi. Resmi bitince ${V.closeObj} dikkatlice kapattı.`,
+          paragraph: `Sınıf o gün oldukça sessizdi. ${H.nom} kâğıdına ${V.drawMain} çizdi. Sıra arkadaşı ${F.nom} ise kendi kâğıdına ${V.drawFriend} çizdi. Öğretmen iki resmi de panoya astı.`,
+          questions: {
+            sentence: [
+              { qRoot: "Ne", q: `${H.nom} resim dersinde kâğıda ne çizdi?`, ans: V.drawMain, wrong: V.drawWrong }
+            ],
+            story: [
+              { qRoot: "Neyi", q: `${H.nom} resmi bitince neyi dikkatlice kapattı?`, ans: V.closeObj, wrong: V.closeWrong }
+            ],
+            paragraph: [
+              { qRoot: "Kim", q: `Kendi kâğıdına ${V.drawFriend} çizen kimdi?`, ans: F.nom, wrong: ["Okul müdürü", "Annesi", "Kardeşi"] },
+              { qRoot: "Nereye", q: `Öğretmen biten resimleri nereye astı?`, ans: "panoya", wrong: ["kapıya", "pencereye", "tahtanın arkasına"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 14,
+        variants: [
+          { nose: "turuncu bir havuç", noseWrong: ["kırmızı bir elma", "yeşil bir salatalık", "sarı bir limon"], reason: "yoğun kar yağışı yüzünden", reasWrong: ["yaz tatili geldiği için", "elektrikler kesildiği için", "bayram olduğu için"] },
+          { nose: "küçük bir çam kozalağı", noseWrong: ["plastik kaşık", "mavi kapak", "ceviz kabuğu"], reason: "yollar buz tuttuğu için", reasWrong: ["hava çok sıcak olduğu için", "okul boyandığı için", "su kesildiği için"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} evin önündeki bahçede beyaz karlardan kocaman bir kardan adam yaptı.`,
+          story: `Kar bütün gece yağmıştı. ${H.nom} evin önündeki bahçede kocaman bir kardan adam yaptı. Kardan adamın burnuna ${V.nose} taktı.`,
+          paragraph: `Okullar ${V.reason} bir gün tatil edilmişti. ${H.nom} bahçede kardan adam yapıyordu. Yan komşuları ${F.nom} da eldivenlerini giyip yardıma geldi. Birlikte kardan adama kırmızı bir atkı sardılar.`,
+          questions: {
+            sentence: [
+              { qRoot: "Nerede", q: `${H.nom} kardan adamı nerede yaptı?`, ans: "evin önündeki bahçede", wrong: ["okulun koridorunda", "evin salonunda", "marketin önünde"] }
+            ],
+            story: [
+              { qRoot: "Ne", q: `${H.nom} kardan adamın burnuna ne taktı?`, ans: V.nose, wrong: V.noseWrong }
+            ],
+            paragraph: [
+              { qRoot: "Neden", q: `Okullar neden bir gün tatil edilmişti?`, ans: V.reason, wrong: V.reasWrong },
+              { qRoot: "Kim", q: `Eldivenlerini giyip bahçeye yardıma gelen kimdi?`, ans: F.nom, wrong: ["Postacı", "Öğretmen", "Polis"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 15,
+        variants: [
+          { bookType: "macera dolu bir hikâye kitabı", typeWrong: ["kalın bir telefon rehberi", "eski bir gazete", "boş bir resim defteri"], cover: "dev bir uzay gemisi", covWrong: ["kırmızı bir traktör", "sarı bir papatya", "küçük bir kulübe"] },
+          { bookType: "eğlenceli bir bilmece kitabı", typeWrong: ["yemek tarifi defteri", "not çizelgesi", "takvim yaprağı"], cover: "gülümseyen bir yunus balığı", covWrong: ["korkunç bir ejderha", "eski bir saat", "siyah bir şapka"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} çarşıdaki büyük kitapçıdan ${V.bookType} satın aldı.`,
+          story: `Hafta sonu çarşıya çıktılar. ${H.nom} büyük kitapçıdan ${V.bookType} satın aldı. Kitabın kapağında ${V.cover} resmi vardı.`,
+          paragraph: `Kitapçının içi taze kâğıt kokuyordu. ${H.nom} rafların arasından ${V.bookType} seçti. Kasada ödeme yaparken sınıf arkadaşı ${F.nom} ile karşılaştı. İkisi de kitap okumayı çok seviyordu.`,
+          questions: {
+            sentence: [
+              { qRoot: "Ne", q: `${H.nom} çarşıdaki kitapçıdan ne satın aldı?`, ans: V.bookType, wrong: V.typeWrong }
+            ],
+            story: [
+              { qRoot: "Ne", q: `Kitabın kapağında ne resmi vardı?`, ans: V.cover, wrong: V.covWrong }
+            ],
+            paragraph: [
+              { qRoot: "Kiminle", q: `${H.nom} kasada ödeme yaparken kiminle karşılaştı?`, ans: F.nom, wrong: ["Okul müdürüyle", "Komşusuyla", "Kardeşiyle"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 16,
+        variants: [
+          { time: "pazar günü", timeWrong: ["gece yarısı", "salı akşamı", "kış gecesi"], cloth: "kırmızı kareli örtünün üzerine", clothWrong: ["ağacın dallarına", "arabanın koltuğuna", "suyun içine"], searchPlace: "yeşil çalıların arasında", searchWrong: ["evin çatısında", "market reyonunda", "okul sınıfında"] },
+          { time: "cumartesi sabahı", timeWrong: ["karanlıkta", "yağmurlu gecede", "ders saatinde"], cloth: "mavi piknik masasının üstüne", clothWrong: ["taşların altına", "bisiklet sepetine", "çadırın tepesine"], searchPlace: "uzun papatyaların arasında", searchWrong: ["kütüphane rafında", "otobüsün içinde", "mutfak dolabında"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} ${V.time} çam ormanında ailesiyle neşeli bir piknik yaptı.`,
+          story: `Hava pırıl pırıldı. ${H.nom} ${V.time} çam ormanında ailesiyle piknik yaptı. Evden getirdikleri yiyecekleri ${V.cloth} özenle dizdiler.`,
+          paragraph: `Ormanın havası çok temizdi. ${H.nom} ${V.time} ailesiyle piknik yaptı. Yemekten sonra arkadaşı ${F.nom} ile top oynarken top uzağa yuvarlandı. İkisi koşarak ${V.searchPlace} topu aradılar.`,
+          questions: {
+            sentence: [
+              { qRoot: "Ne zaman", q: `${H.nom} ailesiyle pikniği ne zaman yaptı?`, ans: V.time, wrong: V.timeWrong },
+              { qRoot: "Nerede", q: `${H.nom} ailesiyle nerede piknik yaptı?`, ans: "çam ormanında", wrong: ["alışveriş merkezinde", "okul koridorunda", "sinema salonunda"] }
+            ],
+            story: [
+              { qRoot: "Nereye", q: `Evden getirdikleri yiyecekleri nereye dizdiler?`, ans: V.cloth, wrong: V.clothWrong }
+            ],
+            paragraph: [
+              { qRoot: "Nerede", q: `${H.nom} ve ${F.nom} yuvarlanan topu nerede aradılar?`, ans: V.searchPlace, wrong: V.searchWrong }
+            ]
+          }
+        })
+      },
+      {
+        id: 17,
+        variants: [
+          { reason: "okula gitmek için", reasWrong: ["denize yüzmeye gitmek için", "uyumak için", "top oynamak için"], seat: "cam kenarındaki koltuğa", seatWrong: ["şoför koltuğuna", "merdiven basamağına", "bagaj kısmına"], talk: "fen bilimleri ödevinden", talkWrong: ["televizyon dizisinden", "yemek tarifinden", "kış tatilinden"] },
+          { reason: "bilim müzesini gezmek için", reasWrong: ["marketten ekmek almak için", "saç tıraşı olmak için", "halı yıkamak için"], seat: "orta sıradaki boş koltuğa", seatWrong: ["ayakta kapı önüne", "otobüsün üstüne", "şoförün yanına"], talk: "uzay roketlerinden", talkWrong: ["bahçe çiçeklerinden", "kırık oyuncaklardan", "diş fırçalamaktan"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} sabah ${V.reason} sarı otobüse bindi.`,
+          story: `Saat sabah sekizi gösteriyordu. ${H.nom} ${V.reason} duraktan sarı otobüse bindi. Boş bulduğu ${V.seat} güvenli şekilde oturdu.`,
+          paragraph: `Sabah caddeler oldukça hareketliydi. ${H.nom} ${V.reason} sarı otobüse bindi. Bir sonraki durakta arkadaşı ${F.nom} otobüse binip yanına oturdu. Yol boyunca heyecanla ${V.talk} konuştular.`,
+          questions: {
+            sentence: [
+              { qRoot: "Neden", q: `${H.nom} sabah neden sarı otobüse bindi?`, ans: V.reason, wrong: V.reasWrong }
+            ],
+            story: [
+              { qRoot: "Nereye", q: `${H.nom} otobüste nereye oturdu?`, ans: V.seat, wrong: V.seatWrong }
+            ],
+            paragraph: [
+              { qRoot: "Ne", q: `${H.nom} ve ${F.nom} yol boyunca heyecanla neden konuştular?`, ans: V.talk, wrong: V.talkWrong },
+              { qRoot: "Kim", q: `Bir sonraki durakta otobüse binip ${H.gen} yanına oturan kimdi?`, ans: F.nom, wrong: ["Biletçi", "Komşusu", "Amcası"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 18,
+        variants: [
+          { animal: "uzun boyunlu zürafayı", animWrong: ["kutuplarda yaşayan pengueni", "büyük mavi balinayı", "kırmızı yengeci"], eat: "ağaçtaki taze yeşil yaprakları", eatWrong: ["kızarmış patatesi", "peynirli tostu", "balık krakeri"], pointAnim: "daldan dala atlayan maymunları", pointWrong: ["uçan kartalları", "yüzen yunusları", "uyuyan kedileri"] },
+          { animal: "büyük kulaklı fili", animWrong: ["çizgili zebrayı", "yeşil timsahı", "renkli papağanı"], eat: "sepetteki tatlı elmaları", eatWrong: ["sıcak çorbayı", "kuru ekmeği", "çikolatayı"], pointAnim: "havuzda yüzen flamingoları", pointWrong: ["koşan atları", "ağaca çıkan sincapları", "küçük karıncaları"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} hayvanat bahçesinde ${V.animal} merakla izledi.`,
+          story: `Bugün gezi günüydü. ${H.nom} hayvanat bahçesinde ${V.animal} merakla izledi. Hayvan o sırada iştahla ${V.eat} yiyordu.`,
+          paragraph: `Hayvanat bahçesi ziyaretçilerle doluydu. ${H.nom} ${V.animal} ilgiyle izledi. Yanına arkadaşı ${F.nom} koşarak geldi ve parmağıyla ${V.pointAnim} gösterdi. İkisi fotoğraf çekerek geziye devam ettiler.`,
+          questions: {
+            sentence: [
+              { qRoot: "Neyi", q: `${H.nom} hayvanat bahçesinde neyi merakla izledi?`, ans: V.animal, wrong: V.animWrong }
+            ],
+            story: [
+              { qRoot: "Ne", q: `${H.gen} izlediği hayvan o sırada ne yiyordu?`, ans: V.eat, wrong: V.eatWrong }
+            ],
+            paragraph: [
+              { qRoot: "Neyi", q: `${F.nom} parmağıyla ${H.dat} neyi gösterdi?`, ans: V.pointAnim, wrong: V.pointWrong }
+            ]
+          }
+        })
+      },
+      {
+        id: 19,
+        variants: [
+          { place: "göl kenarındaki kamp alanında", placeWrong: ["evin salonunda", "okul kütüphanesinde", "marketin önünde"], item: "kalın yün battaniyeleri", itemWrong: ["plaj şemsiyesini", "deniz simidini", "vantilatörü"] },
+          { place: "dağ eteğindeki izci kampında", placeWrong: ["otobüsün içinde", "sınıfın ortasında", "balkonda"], item: "sıcak ıhlamur termosunu", itemWrong: ["buzlu dondurmayı", "soğuk karpuzu", "sulama hortumunu"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} ${V.place} kuru odunlarla kamp ateşi yaktı.`,
+          story: `Akşam olunca hava serinlemişti. ${H.nom} ${V.place} ısınmak için kuru odunlarla kamp ateşi yaktı. Ateşin etrafında oturup ellerini ısıttılar.`,
+          paragraph: `Doğada huzurlu bir akşam vaktiydi. ${H.nom} ${V.place} kamp ateşi yaktı. Arkadaşı ${F.nom} çadırın içinden ${V.item} getirdi. Birlikte ateşin başında doğa şarkıları söylediler.`,
+          questions: {
+            sentence: [
+              { qRoot: "Nerede", q: `${H.nom} kuru odunlarla nerede kamp ateşi yaktı?`, ans: V.place, wrong: V.placeWrong }
+            ],
+            story: [
+              { qRoot: "Neden", q: `${H.nom} akşam olunca neden kamp ateşi yaktı?`, ans: "ısınmak için", wrong: ["buz eritmek için", "ütü yapmak için", "televizyon izlemek için"] }
+            ],
+            paragraph: [
+              { qRoot: "Neyi", q: `${F.nom} çadırın içinden neyi getirdi?`, ans: V.item, wrong: V.itemWrong },
+              { qRoot: "Nereden", q: `${F.nom} ${V.item} nereden getirdi?`, ans: "çadırın içinden", wrong: ["marketten", "okuldan", "evdeki dolaptan"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 20,
+        variants: [
+          { tool: "büyük teleskopla", toolWrong: ["el feneriyle", "büyüteçle", "güneş gözlüğüyle"], skyObj: "parlak yıldızları ve Ay'ı", skyWrong: ["uçan balonları", "göçmen kuşları", "gökkuşağını"] },
+          { tool: "babasının dürbünüyle", toolWrong: ["mikroskopla", "fotoğraf çerçevesiyle", "pusulayla"], skyObj: "kayan yıldızları", skyWrong: ["parlayan güneşi", "yağmur bulutlarını", "uçurtmaları"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} gece odasının penceresinden ${V.tool} ${V.skyObj} izledi.`,
+          story: `Gökyüzü o gece tamamen bulutsuzdu. ${H.nom} odasının penceresinden ${V.tool} ${V.skyObj} izledi. Gördüğü şekilleri yıldız defterine çizdi.`,
+          paragraph: `Gece her yer sessizdi. ${H.nom} pencereden ${V.tool} ${V.skyObj} inceliyordu. Yanına gelen ${F.nom} da sırayla gökyüzüne baktı. İkisi yıldız kümelerini sevimli hayvan şekillerine benzettiler.`,
+          questions: {
+            sentence: [
+              { qRoot: "Ne ile", q: `${H.nom} pencereden gökyüzünü ne ile izledi?`, ans: V.tool, wrong: V.toolWrong },
+              { qRoot: "Neyi", q: `${H.nom} gece pencereden neyi izledi?`, ans: V.skyObj, wrong: V.skyWrong }
+            ],
+            story: [
+              { qRoot: "Nereye", q: `${H.nom} gökyüzünde gördüğü şekilleri nereye çizdi?`, ans: "yıldız defterine", wrong: ["duvara", "okul tahtasına", "gazeteye"] }
+            ],
+            paragraph: [
+              { qRoot: "Kim", q: `${H.gen} yanına gelip sırayla gökyüzüne bakan kimdi?`, ans: F.nom, wrong: ["Komşu amca", "Bekçi", "Öğretmeni"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 21,
+        variants: [
+          { seed: "domates fidelerini", seedWrong: ["plastik oyuncakları", "renkli taşları", "deniz kabuklarını"], tool: "küçük kırmızı kovayla", toolWrong: ["çay kaşığıyla", "hortumla", "boya fırçasıyla"] },
+          { seed: "çilek fidelerini", seedWrong: ["kuru yaprakları", "cam bilyeleri", "tahta blokları"], tool: "yeşil süzgeçli sulukla", toolWrong: ["su bardağıyla", "tencereyle", "kovayla"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} okulun uygulama bahçesine özenle ${V.seed} dikti.`,
+          story: `Bahar gelince toprak ısınmıştı. ${H.nom} okulun uygulama bahçesine ${V.seed} dikti. Dikim bitince ${V.tool} can suyu verdi.`,
+          paragraph: `Doğa kulübü öğrencileri bahçede toplandı. ${H.nom} yumuşak toprağa ${V.seed} dikti. Arkadaşı ${F.nom} ise fidelerin etrafındaki yabani otları temizledi. Birkaç hafta sonra fideler büyümeye başladı.`,
+          questions: {
+            sentence: [
+              { qRoot: "Neyi", q: `${H.nom} okulun uygulama bahçesine neyi dikti?`, ans: V.seed, wrong: V.seedWrong }
+            ],
+            story: [
+              { qRoot: "Ne ile", q: `${H.nom} diktiği fidelere ne ile can suyu verdi?`, ans: V.tool, wrong: V.toolWrong }
+            ],
+            paragraph: [
+              { qRoot: "Kim", q: `Fidelerin etrafındaki yabani otları kim temizledi?`, ans: F.nom, wrong: ["Okul müdürü", "Kantin görevlisi", "Şoför"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 22,
+        variants: [
+          { inst: "ahşap kemanıyla", instWrong: ["davuluyla", "borazanıyla", "radyosuyla"], song: "neşeli bir bahar şarkısı", songWrong: ["uzun bir masal", "şiir", "tiyatro oyunu"] },
+          { inst: "beyaz piyanosuyla", instWrong: ["düdüğüyle", "televizyonuyla", "ziliyle"], song: "güzel bir çocuk marşı", songWrong: ["hava durumu haberi", "bilmece", "fıkra"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} müzik odasında ${V.inst} ${V.song} çaldı.`,
+          story: `Okul konseri yaklaşıyordu. ${H.nom} müzik odasında ${V.inst} ${V.song} çaldı. Öğretmeni onu gülümseyerek alkışladı.`,
+          paragraph: `Müzik odasından harika ezgiler yükseliyordu. ${H.nom} ${V.inst} ${V.song} çaldı. Arkadaşı ${F.nom} da flütüyle ona eşlik etti. Prova sonunda tüm sınıf arkadaşları onları coşkuyla alkışladı.`,
+          questions: {
+            sentence: [
+              { qRoot: "Nerede", q: `${H.nom} ${V.song} nerede çaldı?`, ans: "müzik odasında", wrong: ["spor salonunda", "yemekhanede", "okul bahçesinde"] },
+              { qRoot: "Ne ile", q: `${H.nom} şarkıyı ne ile çaldı?`, ans: V.inst, wrong: V.instWrong }
+            ],
+            story: [
+              { qRoot: "Kim", q: `${H.acc} gülümseyerek alkışlayan kimdi?`, ans: "öğretmeni", wrong: ["doktor", "postacı", "fırıncı"] }
+            ],
+            paragraph: [
+              { qRoot: "Kim", q: `Flütüyle ${H.dat} eşlik eden arkadaşı kimdi?`, ans: F.nom, wrong: ["Kardeşi", "Annesi", "Okul müdürü"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 23,
+        variants: [
+          { animal: "yaralı serçeyi", animWrong: ["büyük fili", "yeşil kurbağayı", "kırmızı balığı"], box: "pamuklu küçük bir kutuya", boxWrong: ["cam kavanoza", "plastik poşete", "okul çantasına"] },
+          { animal: "kanadı incinen güvercini", animWrong: ["uzun zürafayı", "sarı aslanı", "deniz kaplumbağasını"], box: "yumuşak havlulu sepete", boxWrong: ["demir kafese", "su kovasına", "çekmeceye"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} bahçede bulduğu ${V.animal} veterinere götürdü.`,
+          story: `Ağacın altında uçamayan bir kuş vardı. ${H.nom} bulduğu ${V.animal} dikkatlice ${V.box} koydu. Vakit kaybetmeden mahalledeki veterinere götürdü.`,
+          paragraph: `Sabah yürüyüşünde ${H.nom} yerde duran ${V.animal} fark etti. Onu incitmeden ${V.box} yerleştirdi. Yanında olan arkadaşı ${F.nom} kliniğin kapısını açtı. Veteriner hekim kuşun kanadını sarıp çocuklara teşekkür etti.`,
+          questions: {
+            sentence: [
+              { qRoot: "Nereye", q: `${H.nom} bahçede bulduğu ${V.animal} nereye götürdü?`, ans: "veterinere", wrong: ["kütüphaneye", "manava", "kırtasiyeye"] }
+            ],
+            story: [
+              { qRoot: "Nereye", q: `${H.nom} kuşu veterinere götürmeden önce nereye koydu?`, ans: V.box, wrong: V.boxWrong }
+            ],
+            paragraph: [
+              { qRoot: "Kim", q: `Veteriner kliniğinin kapısını açarak ${H.dat} yardım eden kimdi?`, ans: F.nom, wrong: ["Bekçi", "Şoför", "Fırıncı"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 24,
+        variants: [
+          { bread: "sıcak susamlı simit", breadWrong: ["soğuk dondurma", "yeşil elma", "çikolatalı süt"], meal: "pazar kahvaltısı", mealWrong: ["akşam yemeği", "gece atıştırması", "okul beslenmesi"] },
+          { bread: "taze kızarmış ekmek", breadWrong: ["meyve suyu", "patates cipsi", "şekerleme"], meal: "sabah kahvaltısı", mealWrong: ["öğle yemeği", "doğum günü partisi", "piknik gezisi"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} ${V.meal} için mahalle fırınından ${V.bread} aldı.`,
+          story: `Sokak mis gibi kokuyordu. ${H.nom} ${V.meal} için mahalle fırınından ${V.bread} aldı. Kese kâğıdına konulan ürünleri elini yakmadan eve taşıdı.`,
+          paragraph: `Güneş yeni doğmuştu. ${H.nom} ${V.meal} için fırından ${V.bread} aldı. Fırının kapısında komşu çocuğu ${F.nom} ile karşılaştı. İkisi sıcak kese kâğıtlarını tutarak neşeyle apartmana yürüdüler.`,
+          questions: {
+            sentence: [
+              { qRoot: "Ne", q: `${H.nom} mahalle fırınından ne aldı?`, ans: V.bread, wrong: V.breadWrong },
+              { qRoot: "Ne için", q: `${H.nom} fırından ${V.bread} ne için aldı?`, ans: V.meal, wrong: V.mealWrong }
+            ],
+            story: [
+              { qRoot: "Nereye", q: `Fırıncı alınan ürünleri nereye koydu?`, ans: "kese kâğıdına", wrong: ["cam şişeye", "karton kutuya", "tencereye"] }
+            ],
+            paragraph: [
+              { qRoot: "Kiminle", q: `${H.nom} fırının kapısında kiminle karşılaştı?`, ans: F.nom, wrong: ["Öğretmeniyle", "Polisle", "Doktorla"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 25,
+        variants: [
+          { toy: "ahşap tren setini", toyWrong: ["kirli bulaşıkları", "kışlık botları", "mutfak tencerelerini"], box: "mavi oyuncak kutusuna", boxWrong: ["buzdolabının içine", "balkon demirine", "ayakkabılığa"] },
+          { toy: "renkli lego parçalarını", toyWrong: ["bahçe hortumunu", "yemek tabaklarını", "duvar saatini"], box: "kapaklı yeşil sepete", boxWrong: ["çamaşır makinesine", "fırının içine", "banyo dolabına"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} oyun saati bitince halının üzerindeki ${V.toy} topladı.`,
+          story: `Akşam yemeği saati yaklaşmıştı. ${H.nom} oyun bitince halının üzerindeki ${V.toy} topladı. Hepsini tek tek ${V.box} yerleştirdi.`,
+          paragraph: `Oda oyun oynarken biraz dağılmıştı. ${H.nom} halının üzerindeki ${V.toy} toplamaya başladı. Misafirliğe gelen arkadaşı ${F.nom} da ona yardım etti. Tüm parçaları ${V.box} koyunca oda tertemiz oldu.`,
+          questions: {
+            sentence: [
+              { qRoot: "Neyi", q: `${H.nom} oyun saati bitince halının üzerinden neyi topladı?`, ans: V.toy, wrong: V.toyWrong }
+            ],
+            story: [
+              { qRoot: "Nereye", q: `${H.nom} topladığı oyuncakları nereye yerleştirdi?`, ans: V.box, wrong: V.boxWrong }
+            ],
+            paragraph: [
+              { qRoot: "Kim", q: `Odayı toplarken ${H.dat} kim yardım etti?`, ans: F.nom, wrong: ["Komşu amca", "Postacı", "Bekçi"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 26,
+        variants: [
+          { gear: "mavi yüzücü gözlüğünü", gearWrong: ["kışlık atkısını", "yün eldivenini", "yağmur çizmesini"], pool: "olimpik yüzme havuzunda", poolWrong: ["çamurlu su birikintisinde", "küçük akvaryumda", "süs havuzunda"] },
+          { gear: "sarı kolluklarını", gearWrong: ["kalın paltosunu", "okul çantasını", "boya önlüğünü"], pool: "spor kompleksinin havuzunda", poolWrong: ["banyo lavabosunda", "bahçe kovasında", "nehirde"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} yüzme dersinde ${V.gear} takıp suya girdi.`,
+          story: `Bugün yüzme kursu günüydü. ${H.nom} ${V.gear} takıp ${V.pool} suya girdi. Antrenörün gösterdiği kulaç hareketlerini dikkatle yaptı.`,
+          paragraph: `Havuzun suyu ılık ve tertemizdi. ${H.nom} ${V.gear} takıp suya girdi. Yan kulvarda yüzen arkadaşı ${F.nom} ile karşıya kadar kulaç attılar. Ders sonunda duş alıp havlularına sarındılar.`,
+          questions: {
+            sentence: [
+              { qRoot: "Neyi", q: `${H.nom} suya girmeden önce neyi taktı?`, ans: V.gear, wrong: V.gearWrong }
+            ],
+            story: [
+              { qRoot: "Nerede", q: `${H.nom} nerede suya girdi?`, ans: V.pool, wrong: V.poolWrong }
+            ],
+            paragraph: [
+              { qRoot: "Kim", q: `Yan kulvarda ${H.nom} ile birlikte kulaç atan kimdi?`, ans: F.nom, wrong: ["Okul müdürü", "Bahçıvan", "Şoför"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 27,
+        variants: [
+          { exhibit: "dev dinozor iskeletini", exhWrong: ["oyuncak bebekleri", "yarış bisikletlerini", "meyve sepetlerini"], rule: "sessizce ve koşmadan", ruleWrong: ["bağırarak ve koşarak", "top oynayarak", "bisiklet sürerek"] },
+          { exhibit: "tarihi buharlı treni", exhWrong: ["çizgi film karakterlerini", "mutfak eşyalarını", "deniz simitlerini"], rule: "sırayı bozmadan", ruleWrong: ["eşyalara dokunarak", "gürültü yaparak", "saklambaç oynayarak"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} şehir müzesinde sergilenen ${V.exhibit} hayranlıkla inceledi.`,
+          story: `Sınıfça müze gezisine gittiler. ${H.nom} müze salonlarını ${V.rule} gezdi. Cam bölmenin ardındaki ${V.exhibit} hayranlıkla inceledi.`,
+          paragraph: `Müze binası çok geniş ve aydınlıktı. ${H.nom} salonda duran ${V.exhibit} inceledi. Yanındaki arkadaşı ${F.nom} bilgilendirme tabelasını kısık sesle okudu. İkisi öğrendikleri bilgileri gezi defterine yazdılar.`,
+          questions: {
+            sentence: [
+              { qRoot: "Neyi", q: `${H.nom} şehir müzesinde neyi hayranlıkla inceledi?`, ans: V.exhibit, wrong: V.exhWrong }
+            ],
+            story: [
+              { qRoot: "Nasıl", q: `${H.nom} müze salonlarını nasıl gezdi?`, ans: V.rule, wrong: V.ruleWrong }
+            ],
+            paragraph: [
+              { qRoot: "Kim", q: `Müzedeki bilgilendirme tabelasını kısık sesle kim okudu?`, ans: F.nom, wrong: ["Gişe görevlisi", "Şoför", "Kantin çalışanı"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 28,
+        variants: [
+          {material: "atık plastik kapaklardan", matWrong: ["cam bardaklardan", "porselen tabaklardan", "demir çivilerden"], make: "renkli bir kalemlik", makeWrong: ["büyük bir bisiklet", "gerçek bir telefon", "duvar halısı"] },
+          { material: "boş karton kutulardan", matWrong: ["tahta sandalyelerden", "yün kazaklardan", "taş parçalarından"], make: "oyuncak bir robot", makeWrong: ["cam vazo", "porselen demlik", "demir kapı"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} geri dönüşüm etkinliğinde ${V.material} ${V.make} tasarladı.`,
+          story: `Okulda sıfır atık haftası kutlanıyordu. ${H.nom} evden getirdiği ${V.material} ${V.make} tasarladı. Parçaları yapıştırıcı ile sağlamca birleştirdi.`,
+          paragraph: `Sınıfta harika bir üretim heyecanı vardı. ${H.nom} ${V.material} ${V.make} yaptı. Arkadaşı ${F.nom} da renkli el işi kâğıtlarıyla süslemesine yardım etti. Hazırlanan eserler okul koridorunda sergilendi.`,
+          questions: {
+            sentence: [
+              { qRoot: "Ne", q: `${H.nom} geri dönüşüm etkinliğinde ne tasarladı?`, ans: V.make, wrong: V.makeWrong },
+              { qRoot: "Neden / Neyden", q: `${H.nom} tasarımını neyden yaptı?`, ans: V.material, wrong: V.matWrong }
+            ],
+            story: [
+              { qRoot: "Ne ile", q: `${H.nom} parçaları ne ile sağlamca birleştirdi?`, ans: "yapıştırıcı ile", wrong: ["çekiç ile", "su ile", "boya fırçası ile"] }
+            ],
+            paragraph: [
+              { qRoot: "Nerede", q: `${H.nom} ve ${F.gen} hazırladığı eserler nerede sergilendi?`, ans: "okul koridorunda", wrong: ["parkta", "markette", "otobüs durağında"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 29,
+        variants: [
+          { fruit: "olgun kırmızı çilekleri", fruitWrong: ["kuru yaprakları", "yeşil dikenleri", "taş parçalarını"], basket: "hasır sepete", baskWrong: ["okul çantasına", "ayakkabı kutusuna", "cebine"] },
+          { fruit: "taze tatlı kirazları", fruitWrong: ["ağaç kabuklarını", "çiçek tomurcuklarını", "çam kozalaklarını"], basket: "kırmızı kovaya", baskWrong: ["kâğıt mendile", "defter arasına", "eldivene"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} dedesinin bahçesinden ${V.fruit} özenle topladı.`,
+          story: `Yaz mevsimi gelince bahçe meyvelerle doldu. ${H.nom} dedesinin bahçesinden ${V.fruit} topladı. Ezilmemeleri için hepsini yavaşça ${V.basket} koydu.`,
+          paragraph: `Sabah güneşi bahçeyi ısıtıyordu. ${H.nom} dallardan ${V.fruit} topladı. Kuzeni ${F.nom} da dolu olan ${V.basket} mutfağa taşıdı. Yıkanan meyveleri ailecek afiyetle yediler.`,
+          questions: {
+            sentence: [
+              { qRoot: "Neyi", q: `${H.nom} dedesinin bahçesinden neyi topladı?`, ans: V.fruit, wrong: V.fruitWrong }
+            ],
+            story: [
+              { qRoot: "Nereye", q: `${H.nom} meyveleri ezilmemeleri için nereye koydu?`, ans: V.basket, wrong: V.baskWrong }
+            ],
+            paragraph: [
+              { qRoot: "Kim", q: `Dolu olan sepeti/kovayı mutfağa kim taşıdı?`, ans: F.nom, wrong: ["Komşu", "Postacı", "Şoför"] }
+            ]
+          }
+        })
+      },
+      {
+        id: 30,
+        variants: [
+          {show: "neşeli kukla tiyatrosunu", showWrong: ["futbol maçını", "araba yarışını", "haber bültenini"], seat: "en ön sıradaki koltuğa", seatWrong: ["sahnenin arkasına", "merdivenin üstüne", "balkonun dışına"] },
+          { show: "renkli gölge oyununu", showWrong: ["basketbol turnuvasını", "konser kaydını", "belgesel filmi"], seat: "ortadaki kırmızı koltuğa", seatWrong: ["kapının dışına", "koridora", "kantine"] }
+        ],
+        build: (H, F, V) => ({
+          sentence: `${H.nom} kültür merkezinde sahnelenen ${V.show} keyifle izledi.`,
+          story: `Perde açılmadan önce salondaki ışıklar yavaşça azaldı. ${H.nom} ${V.seat} oturup ${V.show} keyifle izledi. Komik bölümlerde neşeyle güldü.`,
+          paragraph: `Hafta sonu tiyatro salonu çocuklarla doluydu. ${H.nom} ${V.seat} oturup ${V.show} izledi. Yanında oturan arkadaşı ${F.nom} ile gösteri sonunda oyuncuları uzun uzun alkışladılar.`,
+          questions: {
+            sentence: [
+              { qRoot: "Neyi", q: `${H.nom} kültür merkezinde neyi keyifle izledi?`, ans: V.show, wrong: V.showWrong }
+            ],
+            story: [
+              { qRoot: "Nereye", q: `${H.nom} gösteriyi izlemek için nereye oturdu?`, ans: V.seat, wrong: V.seatWrong }
+            ],
+            paragraph: [
+              { qRoot: "Kim", q: `Gösteri sonunda ${H.nom} ile birlikte oyuncuları kim alkışladı?`, ans: F.nom, wrong: ["Gişe memuru", "Şoför", "Polis"] }
+            ]
+          }
+        })
+      }
+    ];
+
+    // =========================================================================
+    // 4. 24 FARKLI GÖRSEL SIRALAMA ŞABLONU
+    // =========================================================================
+    const SEQUENCE_TEMPLATES = [
+      { id:1, title: "Elleri Yıkama", steps: [ {id:1, icon:"💧", text:"Elleri suyla ıslat."}, {id:2, icon:"🧼", text:"Sabunla güzelce köpürt."}, {id:3, icon:"🧖", text:"Durulayıp havluyla kurula."} ] },
+      { id:2, title: "Diş Fırçalama", steps: [ {id:1, icon:"🪥", text:"Fırçaya nohut kadar macun sık."}, {id:2, icon:"✨", text:"Dişlerini dikkatlice fırçala."}, {id:3, icon:"🚰", text:"Ağzını suyla çalkala."} ] },
+      { id:3, title: "Tohum Ekme", steps: [ {id:1, icon:"🌱", text:"Saksıdaki toprağa küçük çukur aç."}, {id:2, icon:"🌰", text:"Tohumu koyup üzerini toprakla kapat."}, {id:3, icon:"🚿", text:"Sulukla can suyunu ver."} ] },
+      { id:4, title: "Tost Yapma", steps: [ {id:1, icon:"🍞", text:"Ekmeğin arasına kaşar peyniri koy."}, {id:2, icon:"🧇", text:"Tost makinesinde kızart."}, {id:3, icon:"😋", text:"Tabağa alıp afiyetle ye."} ] },
+      { id:5, title: "Kardan Adam Yapma", steps: [ {id:1, icon:"❄️", text:"Karları yuvarlayıp gövde yap."}, {id:2, icon:"🥕", text:"Burnuna turuncu havuç tak."}, {id:3, icon:"🧣", text:"Boynuna renkli atkı sar."} ] },
+      { id:6, title: "Mektup Gönderme", steps: [ {id:1, icon:"✍️", text:"Mektubu temiz bir kâğıda yaz."}, {id:2, icon:"✉️", text:"Zarfa koyup üzerine pul yapıştır."}, {id:3, icon:"📮", text:"Posta kutusuna at."} ] },
+      { id:7, title: "Çay Demleme", steps: [ {id:1, icon:"🫖", text:"Çaydanlıkta suyu kaynat."}, {id:2, icon:"🌿", text:"Üst demliğe kuru çay koy."}, {id:3, icon:"☕", text:"Sıcak suyu ekleyip demlenmesini bekle."} ] },
+      { id:8, title: "Makarna Pişirme", steps: [ {id:1, icon:"🍲", text:"Tencerede suyu kaynat."}, {id:2, icon:"🍝", text:"Makarnaları suya atıp haşla."}, {id:3, icon:"🍅", text:"Süzüp üzerine sos ekle."} ] },
+      { id:9, title: "Yatak Toplama", steps: [ {id:1, icon:"🛏️", text:"Sabah uyanınca yatağı havalandır."}, {id:2, icon:"🛌", text:"Çarşafı ve yorganı düzgünce ser."}, {id:3, icon:"🧸", text:"Yastığı baş ucuna yerleştir."} ] },
+      { id:10, title: "Ayakkabı Bağlama", steps: [ {id:1, icon:"👟", text:"Ayakkabıyı giyip bağcıkları çapraz tut."}, {id:2, icon:"🎀", text:"İki halka (tavşan kulağı) oluştur."}, {id:3, icon:"👞", text:"Halkaları düğümleyip sıkılaştır."} ] },
+      { id:11, title: "Hediye Paketleme", steps: [ {id:1, icon:"🎁", text:"Hediyeyi karton kutuya yerleştir."}, {id:2, icon:"📜", text:"Kutuyu renkli hediye kâğıdıyla sar."}, {id:3, icon:"🎀", text:"Üstüne parlak kurdele bağla."} ] },
+      { id:12, title: "Çamaşır Asma", steps: [ {id:1, icon:"🧺", text:"Yıkanan çamaşırları sepetten al."}, {id:2, icon:"👕", text:"Silkeleyip kurutma ipine ser."}, {id:3, icon:"📎", text:"Uçmaması için mandal tak."} ] },
+      { id:13, title: "Resim Çizme", steps: [ {id:1, icon:"📄", text:"Masaya boş bir resim kâğıdı koy."}, {id:2, icon:"✏️", text:"Kurşun kalemle resmi çiz."}, {id:3, icon:"🖍️", text:"Kuru boyalarla güzelce boya."} ] },
+      { id:14, title: "Limonata Yapma", steps: [ {id:1, icon:"🍋", text:"Limonları kesip suyunu sık."}, {id:2, icon:"🧊", text:"Sürahiye su ve biraz şeker ekle."}, {id:3, icon:"🍹", text:"Kaşıkla karıştırıp bardağa doldur."} ] },
+      { id:15, title: "Akvaryum Temizleme", steps: [ {id:1, icon:"🐟", text:"Balıkları su dolu güvenli kaba al."}, {id:2, icon:"🧽", text:"Akvaryumun iç camlarını temizle."}, {id:3, icon:"💧", text:"Temiz su doldurup balıkları geri koy."} ] },
+      { id:16, title: "Omlet Pişirme", steps: [ {id:1, icon:"🥚", text:"Yumurtaları kâseye kırıp çırp."}, {id:2, icon:"🍳", text:"Isınmış tavaya döküp pişir."}, {id:3, icon:"🍽️", text:"Pişen omleti servis tabağına al."} ] },
+      { id:17, title: "Tabak Yıkama", steps: [ {id:1, icon:"🍽️", text:"Kirli tabağı suyla akıt."}, {id:2, icon:"🧽", text:"Bulaşık süngeriyle köpürt."}, {id:3, icon:"🚿", text:"Bol suyla durulayıp rafa diz."} ] },
+      { id:18, title: "Çiçek Dikme", steps: [ {id:1, icon:"🪴", text:"Saksının yarısına taze toprak doldur."}, {id:2, icon:"🌷", text:"Çiçeğin kökünü toprağa yerleştir."}, {id:3, icon:"🚿", text:"Üstünü toprakla örtüp su ver."} ] },
+      { id:19, title: "Sandviç Hazırlama", steps: [ {id:1, icon:"🍞", text:"Sandviç ekmeğini ortadan ikiye aç."}, {id:2, icon:"🍅", text:"Arasına peynir, marul ve domates diz."}, {id:3, icon:"🥪", text:"Ekmeği kapatıp tabağa koy."} ] },
+      { id:20, title: "Okul Çantası Hazırlama", steps: [ {id:1, icon:"📅", text:"Yarınki ders programını kontrol et."}, {id:2, icon:"📚", text:"Gerekli kitap ve defterleri çantaya yerleştir."}, {id:3, icon:"🎒", text:"Çantanın fermuarını kapat."} ] },
+      { id:21, title: "Meyve Salatası Yapma", steps: [ {id:1, icon:"🍎", text:"Meyveleri bol suyla yıka."}, {id:2, icon:"🔪", text:"Muz ve elmaları küçük dilimle."}, {id:3, icon:"🥣", text:"Kâsede karıştırıp servis et."} ] },
+      { id:22, title: "Yağmurlu Havada Dışarı Çıkma", steps: [ {id:1, icon:"🧥", text:"Su geçirmez yağmurluğunu giy."}, {id:2, icon:"🥾", text:"Ayağına yağmur çizmelerini geçir."}, {id:3, icon:"☂️", text:"Kapıdan çıkınca şemsiyeni aç."} ] },
+      { id:23, title: "Kütüphaneden Kitap Alma", steps: [ {id:1, icon:"🔍", text:"Raflardan okumak istediğin kitabı seç."}, {id:2, icon:"🪪", text:"Görevliye kütüphane kartını ver."}, {id:3, icon:"📖", text:"Kaydı yapılan kitabı çantana koy."} ] },
+      { id:24, title: "Saç Tarama", steps: [ {id:1, icon:"🪞", text:"Aynanın karşısına geç."}, {id:2, icon:"🪮", text:"Tarağı eline alıp saç uçlarını aç."}, {id:3, icon:"✨", text:"Saçlarını yukarıdan aşağıya düzgünce tara."} ] }
+    ];
+
+    // =========================================================================
+    // 5. DİNAMİK KARIŞTIRMA VE SORU ÜRETİM MOTORU
     // =========================================================================
     let currentStudent = 'Öğrenci 1';
     let earnedStars = 0;
+    let shuffleGenerationCount = 1;
+    let scenarioDeck = [];
+    let sequenceDeck = [];
+    let dataset = { sentence: [], sequence: [], story: [], paragraph: [] };
 
     const CATEGORY_META = {
       sentence: { name: 'Tek Cümle', icon: '🎈' },
@@ -1260,6 +1944,116 @@
       paragraph: { name: 'Paragraf Okuma', icon: '🚀' }
     };
 
+    function shuffleArray(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function getRandomItem(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function pickTwoDistinctCharacters() {
+      const firstIdx = Math.floor(Math.random() * CHARACTER_POOL.length);
+      let secondIdx = Math.floor(Math.random() * CHARACTER_POOL.length);
+      while (secondIdx === firstIdx) {
+        secondIdx = Math.floor(Math.random() * CHARACTER_POOL.length);
+      }
+      return [CHARACTER_POOL[firstIdx], CHARACTER_POOL[secondIdx]];
+    }
+
+    function nextScenarioTemplate() {
+      if (scenarioDeck.length === 0) {
+        scenarioDeck = shuffleArray(SCENARIO_TEMPLATES);
+      }
+      return scenarioDeck.pop();
+    }
+
+    function nextSequenceTemplate() {
+      if (sequenceDeck.length === 0) {
+        sequenceDeck = shuffleArray(SEQUENCE_TEMPLATES);
+      }
+      return sequenceDeck.pop();
+    }
+
+    function buildChoices(correctAnswer, wrongPool) {
+      let count = (currentDifficulty === 'easy') ? 2 : ((currentDifficulty === 'hard') ? 4 : 3);
+      const filteredWrong = wrongPool.filter(w => w !== correctAnswer);
+      const shuffledWrong = shuffleArray(filteredWrong);
+      return shuffleArray([correctAnswer, ...shuffledWrong.slice(0, count - 1)]);
+    }
+
+    function generateQuestionData(category) {
+      if (category === 'sequence') {
+        const tpl = nextSequenceTemplate();
+        const [hero] = pickTwoDistinctCharacters();
+        return {
+          id: 'seq_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
+          levelDesc: '2. Düzey: Görsel Olay Sıralama',
+          title: `${hero.nom} İçin ${tpl.title} Sıralaması`,
+          questionRoot: 'Olay Sıralama',
+          question: `${hero.nom} bu etkinliği yaparken adımları hangi sırayla izlemelidir?`,
+          steps: tpl.steps
+        };
+      }
+
+      const tpl = nextScenarioTemplate();
+      const [hero, friend] = pickTwoDistinctCharacters();
+      const variant = getRandomItem(tpl.variants);
+      const built = tpl.build(hero, friend, variant);
+
+      const categoryQuestions = built.questions[category];
+      const qData = getRandomItem(categoryQuestions);
+      const text = built[category];
+      const correctAnswer = qData.ans;
+      const choices = buildChoices(correctAnswer, qData.wrong);
+
+      const levelDescs = { 
+        sentence: '1. Düzey: Tek Cümle', 
+        story: '3. Düzey: Mini Hikâye', 
+        paragraph: '4. Düzey: Paragraf Okuma' 
+      };
+
+      return {
+        id: category + '_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
+        levelDesc: levelDescs[category],
+        text: text,
+        questionRoot: qData.qRoot,
+        question: qData.q,
+        choices: choices,
+        correctIndex: choices.indexOf(correctAnswer)
+      };
+    }
+
+    // Öğretmen Panelindeki "Tüm Metinleri ve İsimleri Karıştır" Butonu Fonksiyonu
+    function regenerateAllTextsAndNames() {
+      stopAllSpeech();
+      shuffleGenerationCount++;
+      scenarioDeck = shuffleArray(SCENARIO_TEMPLATES);
+      sequenceDeck = shuffleArray(SEQUENCE_TEMPLATES);
+
+      // Özel eklenen içerikleri koruyup tüm dinamik havuzu yenile
+      ['sentence', 'sequence', 'story', 'paragraph'].forEach(cat => {
+        const customItems = (dataset[cat] || []).filter(item => String(item.id).startsWith('custom_'));
+        dataset[cat] = [...customItems, generateQuestionData(cat)];
+      });
+
+      currentItemIndex = dataset[currentCategory].length - 1;
+
+      const badge = document.getElementById('shuffleCountBadge');
+      if (badge) badge.textContent = `Karıştırma: #${shuffleGenerationCount}`;
+
+      playPleasantChime();
+      alert(`✅ Tüm metinler, paragraflar, olay varyasyonları ve kişi isimleri yeniden karıştırıldı! (Karıştırma #${shuffleGenerationCount})\n\nÖğrenci ekranına döndüğünüzde yepyeni isim ve metin kombinasyonları görünecektir.`);
+    }
+
+    // =========================================================================
+    // 6. VERİTABANI & ÖĞRENCİ YÖNETİMİ
+    // =========================================================================
     function goHome() {
       stopAllSpeech();
       document.getElementById('splashScreen').style.display = 'flex';
@@ -1317,12 +2111,8 @@
       }
       
       students.forEach(st => {
-        if (topSelect) {
-          topSelect.innerHTML += `<option value="${st}" ${st === currentStudent ? 'selected' : ''}>${st}</option>`;
-        }
-        if (splashSelect) {
-          splashSelect.innerHTML += `<option value="${st}" ${st === currentStudent ? 'selected' : ''}>${st}</option>`;
-        }
+        if (topSelect) topSelect.innerHTML += `<option value="${st}" ${st === currentStudent ? 'selected' : ''}>${st}</option>`;
+        if (splashSelect) splashSelect.innerHTML += `<option value="${st}" ${st === currentStudent ? 'selected' : ''}>${st}</option>`;
       });
 
       earnedStars = (db.students[currentStudent] && db.students[currentStudent].stars) || 0;
@@ -1370,17 +2160,12 @@
 
     function startSession() {
       const splashSelect = document.getElementById('splashStudentSelect');
-      if (splashSelect && splashSelect.value) {
-        currentStudent = splashSelect.value;
-      }
+      if (splashSelect && splashSelect.value) currentStudent = splashSelect.value;
       const topSelect = document.getElementById('studentSelect');
-      if (topSelect) {
-        topSelect.value = currentStudent;
-      }
+      if (topSelect) topSelect.value = currentStudent;
       document.getElementById('splashScreen').style.display = 'none';
       exitTeacherPanel();
 
-      // Eğer öğrencinin aktif ödevi varsa doğrudan ilk tamamlanmamış ödev türünden başlat
       const firstHwCat = getFirstIncompleteHomeworkCategory();
       if (firstHwCat) {
         switchCategory(firstHwCat);
@@ -1390,12 +2175,12 @@
     }
 
     // =========================================================================
-    // 3 SANİYE BASILI TUTMALI ÖĞRETMEN PANELİ KİLİDİ
+    // 7. 3 SANİYE BASILI TUTMALI ÖĞRETMEN PANELİ KİLİDİ
     // =========================================================================
     let holdTimer = null;
     let holdStartTime = 0;
     let holdAnimFrame = null;
-    const HOLD_DURATION = 3000; // 3 saniye
+    const HOLD_DURATION = 3000;
 
     function initTeacherLongPress() {
       const btn = document.getElementById('teacherHoldBtn');
@@ -1448,7 +2233,7 @@
     }
 
     // =========================================================================
-    // ÖDEV VERME, VELİ NOTU VE OTOMATİK GEÇİŞ SİSTEMİ
+    // 8. ÖDEV VERME, VELİ NOTU VE OTOMATİK GEÇİŞ SİSTEMİ
     // =========================================================================
     let hwFormCounts = { sentence: 3, sequence: 2, story: 2, paragraph: 0 };
 
@@ -1469,9 +2254,7 @@
     function checkAndStartFirstHomeworkCategory() {
       renderStudentHomeworkBanner();
       const firstHwCat = getFirstIncompleteHomeworkCategory();
-      if (firstHwCat) {
-        switchCategory(firstHwCat);
-      }
+      if (firstHwCat) switchCategory(firstHwCat);
     }
 
     function openHomeworkModal() {
@@ -1480,9 +2263,7 @@
 
       hwFormCounts = { sentence: 0, sequence: 0, story: 0, paragraph: 0 };
       if (hw.tasks && hw.tasks.length > 0) {
-        hw.tasks.forEach(t => {
-          hwFormCounts[t.category] = t.target;
-        });
+        hw.tasks.forEach(t => { hwFormCounts[t.category] = t.target; });
       } else {
         hwFormCounts = { sentence: 3, sequence: 2, story: 2, paragraph: 0 };
       }
@@ -1522,19 +2303,12 @@
         if (targetCount > 0) {
           const prev = existingTasks.find(t => t.category === cat);
           const completedCount = prev ? Math.min(prev.completed, targetCount) : 0;
-          newTasks.push({
-            category: cat,
-            target: targetCount,
-            completed: completedCount
-          });
+          newTasks.push({ category: cat, target: targetCount, completed: completedCount });
         }
       });
 
       const note = document.getElementById('hwParentNoteInput').value.trim();
-      db.students[currentStudent].homework = {
-        parentNote: note,
-        tasks: newTasks
-      };
+      db.students[currentStudent].homework = { parentNote: note, tasks: newTasks };
 
       saveDatabase(db);
       renderModalCurrentHomeworkList();
@@ -1582,22 +2356,22 @@
       const container = document.getElementById('modalCurrentHomeworkList');
       const hw = getStudentHomework();
       if (!hw.tasks || hw.tasks.length === 0) {
-        container.innerHTML = `<div style="padding: 0.75rem; border-radius: 12px; background: var(--surface-subtle); color: var(--text-muted); font-size: 0.9rem; font-weight: 700;">Şu anda atanmış aktif ödev bulunmuyor.</div>`;
+        container.innerHTML = `<div style="padding: 0.7rem; border-radius: 12px; background: var(--surface-subtle); color: var(--text-muted); font-size: 0.9rem; font-weight: 700;">Şu anda atanmış aktif ödev bulunmuyor.</div>`;
         return;
       }
 
       let html = `<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-        <strong style="font-size:0.95rem;">📌 Mevcut Atanmış Ödevler:</strong>
-        <button class="btn" style="background:var(--danger-light); color:#b91c1c; border-color:#fca5a5; padding:0.25rem 0.65rem; font-size:0.82rem;" onclick="clearAllStudentHomework()">🗑️ Tüm Ödevleri Sil</button>
+        <strong style="font-size:0.94rem;">📌 Mevcut Atanmış Ödevler:</strong>
+        <button class="btn" style="background:var(--danger-light); color:#b91c1c; border-color:#fca5a5; padding:0.22rem 0.6rem; font-size:0.8rem;" onclick="clearAllStudentHomework()">🗑️ Tüm Ödevleri Sil</button>
       </div>`;
 
       hw.tasks.forEach(t => {
         const meta = CATEGORY_META[t.category];
         const isDone = t.completed >= t.target;
         html += `
-          <div style="display:flex; justify-content:space-between; align-items:center; padding:0.55rem 0.85rem; background:#ffffff; border:1.5px solid var(--border); border-radius:10px; margin-bottom:0.4rem; font-size:0.92rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:0.5rem 0.8rem; background:#ffffff; border:1.5px solid var(--border); border-radius:10px; margin-bottom:0.38rem; font-size:0.9rem;">
             <span>${meta.icon} <strong>${meta.name}:</strong> ${t.completed} / ${t.target} ${isDone ? '✅' : '⏳'}</span>
-            <button class="btn" style="background:var(--danger-light); color:#b91c1c; border-color:#fca5a5; padding:0.2rem 0.55rem; font-size:0.8rem;" onclick="deleteSingleHomeworkTask('${t.category}')">Sil</button>
+            <button class="btn" style="background:var(--danger-light); color:#b91c1c; border-color:#fca5a5; padding:0.18rem 0.5rem; font-size:0.78rem;" onclick="deleteSingleHomeworkTask('${t.category}')">Sil</button>
           </div>`;
       });
       container.innerHTML = html;
@@ -1612,17 +2386,17 @@
         return;
       }
       box.style.display = 'block';
-      let html = `<div style="background:#eef2ff; border:2px solid #c7d2fe; border-radius:14px; padding:0.9rem; text-align:left;">
-        <div style="font-weight:900; color:var(--primary); font-size:0.98rem; margin-bottom:0.4rem;">📌 Öğrencinin Atanmış Ödevleri:</div>`;
+      let html = `<div style="background:#eef2ff; border:2px solid #c7d2fe; border-radius:14px; padding:0.85rem; text-align:left;">
+        <div style="font-weight:900; color:var(--primary); font-size:0.95rem; margin-bottom:0.4rem;">📌 Öğrencinin Atanmış Ödevleri:</div>`;
       if (hw.parentNote) {
-        html += `<div style="background:#fef3c7; color:#78350f; padding:0.55rem 0.75rem; border-radius:10px; font-size:0.9rem; font-weight:700; margin-bottom:0.5rem;">💌 <strong>Veli Notu:</strong> ${hw.parentNote}</div>`;
+        html += `<div style="background:#fef3c7; color:#78350f; padding:0.5rem 0.7rem; border-radius:10px; font-size:0.88rem; font-weight:700; margin-bottom:0.5rem;">💌 <strong>Veli Notu:</strong> ${hw.parentNote}</div>`;
       }
       if (hw.tasks && hw.tasks.length > 0) {
-        html += `<div style="display:flex; flex-wrap:wrap; gap:0.45rem;">`;
+        html += `<div style="display:flex; flex-wrap:wrap; gap:0.4rem;">`;
         hw.tasks.forEach(t => {
           const meta = CATEGORY_META[t.category];
           const isDone = t.completed >= t.target;
-          html += `<span style="background:#ffffff; border:1.5px solid ${isDone ? '#10b981' : '#cbd5e1'}; padding:0.3rem 0.65rem; border-radius:8px; font-size:0.85rem; font-weight:800;">
+          html += `<span style="background:#ffffff; border:1.5px solid ${isDone ? '#10b981' : '#cbd5e1'}; padding:0.28rem 0.6rem; border-radius:8px; font-size:0.84rem; font-weight:800;">
             ${meta.icon} ${meta.name}: ${t.completed}/${t.target} ${isDone ? '✅' : ''}
           </span>`;
         });
@@ -1637,7 +2411,6 @@
       const indicator = document.getElementById('activeHwIndicator');
       if (!banner) return;
 
-      // Eğer öğretmen panelindeysek öğrenci ödev barını gizle
       if (document.getElementById('reportContainer').style.display === 'block') {
         banner.style.display = 'none';
         return;
@@ -1659,13 +2432,13 @@
             <span>📋 ${currentStudent} - Ödev Takip Paneli</span>
             ${allDone ? '<span class="tag-badge tag-success">🎉 Tüm Ödevler Tamamlandı!</span>' : ''}
           </div>
-          <span style="font-size:0.85rem; color:var(--text-muted); font-weight:700;">Ödev yaptıkça otomatik tik atılır ve sıradaki türe geçilir</span>
+          <span style="font-size:0.84rem; color:var(--text-muted); font-weight:700;">Ödev yaptıkça otomatik tik atılır ve sıradaki türe geçilir</span>
         </div>`;
 
       if (hw.parentNote) {
         html += `
           <div class="hw-parent-note">
-            <span style="font-size:1.3rem;">💌</span>
+            <span style="font-size:1.25rem;">💌</span>
             <div><strong>Öğretmenin Veli Notu:</strong> ${hw.parentNote}</div>
           </div>`;
       }
@@ -1680,7 +2453,7 @@
             <div class="hw-task-pill ${isDone ? 'done-hw' : ''} ${isActive ? 'active-hw' : ''}" onclick="switchCategory('${t.category}')">
               <div>
                 <div class="hw-task-name">${meta.icon} ${meta.name}</div>
-                <div style="font-size:0.82rem; opacity:0.85;">İlerleme: ${t.completed} / ${t.target}</div>
+                <div style="font-size:0.8rem; opacity:0.85;">İlerleme: ${t.completed} / ${t.target}</div>
               </div>
               <div class="hw-check-box">${isDone ? '✓' : (t.target - t.completed)}</div>
             </div>`;
@@ -1690,7 +2463,6 @@
 
       banner.innerHTML = html;
 
-      // Aktif kategori ödev göstergesi
       const currentTask = (hw.tasks || []).find(t => t.category === currentCategory);
       if (indicator) {
         if (currentTask) {
@@ -1703,7 +2475,6 @@
       }
     }
 
-    // Doğru cevap sonrası ödev ilerlemesini günceller ve gerekirse sonraki ödev türünü döndürür
     let pendingCategoryTransition = null;
 
     function updateHomeworkOnSuccess(category) {
@@ -1719,7 +2490,6 @@
       saveDatabase(db);
       renderStudentHomeworkBanner();
 
-      // Bu ödev türü yeni tamamlandıysa sıradaki tamamlanmamış ödev türünü bul
       if (task.completed === task.target) {
         const nextTask = st.homework.tasks.find(t => t.completed < t.target);
         if (nextTask) {
@@ -1733,7 +2503,7 @@
     }
 
     // =========================================================================
-    // ÖĞRENCİ YÖNETİMİ (MODAL)
+    // 9. ÖĞRENCİ YÖNETİMİ MODAL İŞLEMLERİ
     // =========================================================================
     function openStudentManager() {
       const db = loadDatabase();
@@ -1743,7 +2513,7 @@
         listDiv.innerHTML += `
           <div class="student-row">
             <span style="font-weight:800;">${st}</span>
-            <button class="btn" style="background:#fee2e2; color:#b91c1c; border-color:#fca5a5; padding:0.3rem 0.65rem;" onclick="removeStudent('${st}')">Sil</button>
+            <button class="btn" style="background:#fee2e2; color:#b91c1c; border-color:#fca5a5; padding:0.28rem 0.6rem;" onclick="removeStudent('${st}')">Sil</button>
           </div>`;
       });
       document.getElementById('studentModal').style.display = 'flex';
@@ -1784,7 +2554,7 @@
     }
 
     // =========================================================================
-    // STANDART DOĞAL SES MOTORU (PC VE TABLETTE BİREBİR AYNI DOĞAL SES)
+    // 10. SESLENDİRME VE RENKLİ HECELEME MOTORU
     // =========================================================================
     let audioCtx = null;
     let activeCloudAudio = null;
@@ -1808,12 +2578,9 @@
           osc.start(audioCtx.currentTime + idx * 0.12); 
           osc.stop(audioCtx.currentTime + idx * 0.12 + 0.55);
         });
-      } catch (e) {
-        console.warn("Zil sesi çalınamadı", e);
-      }
+      } catch (e) {}
     }
 
-    // Tablet ve PC'de ses listesini önceden yükle
     let availableTurkishVoices = [];
     function refreshTurkishVoices() {
       if (!('speechSynthesis' in window)) return;
@@ -1834,22 +2601,12 @@
     }
 
     function stopAllSpeech() {
-      if (karaokeInterval) {
-        clearInterval(karaokeInterval);
-        karaokeInterval = null;
-      }
-      if (activeCloudAudio) {
-        activeCloudAudio.pause();
-        activeCloudAudio.currentTime = 0;
-        activeCloudAudio = null;
-      }
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-      }
+      if (karaokeInterval) { clearInterval(karaokeInterval); karaokeInterval = null; }
+      if (activeCloudAudio) { activeCloudAudio.pause(); activeCloudAudio.currentTime = 0; activeCloudAudio = null; }
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
       document.querySelectorAll('.word-span').forEach(el => el.classList.remove('word-active'));
     }
 
-    // PC ve Tablette birebir aynı doğal sesi veren Cloud TTS + Yerel Yedekleme
     function playUnifiedTurkishTTS(text, onProgressWordIndex, onFinish) {
       stopAllSpeech();
       const cleanText = text.replace(/\s+/g, ' ').trim();
@@ -1872,7 +2629,6 @@
 
       audio.onloadedmetadata = () => {
         const totalDuration = (audio.duration && isFinite(audio.duration)) ? audio.duration : (words.length * 0.48);
-        // Kelime uzunluklarına göre ağırlıklı zamanlama
         const totalChars = words.reduce((acc, w) => acc + w.length + 1, 0);
 
         karaokeInterval = setInterval(() => {
@@ -1884,10 +2640,7 @@
             let activeIdx = 0;
             for (let i = 0; i < words.length; i++) {
               accum += words[i].length + 1;
-              if (charTarget <= accum) {
-                activeIdx = i;
-                break;
-              }
+              if (charTarget <= accum) { activeIdx = i; break; }
               activeIdx = i;
             }
             onProgressWordIndex(Math.min(activeIdx, words.length - 1));
@@ -1899,14 +2652,8 @@
         if (karaokeInterval) clearInterval(karaokeInterval);
         if (onFinish) onFinish();
       };
-
-      audio.onerror = () => {
-        triggerLocalFallback();
-      };
-
-      audio.play().catch(() => {
-        triggerLocalFallback();
-      });
+      audio.onerror = () => triggerLocalFallback();
+      audio.play().catch(() => triggerLocalFallback());
     }
 
     function speakFallbackWebSpeech(cleanText, words, onProgressWordIndex, onFinish) {
@@ -1919,7 +2666,6 @@
       utt.lang = 'tr-TR';
       const bestVoice = getBestLocalTurkishVoice();
       if (bestVoice) utt.voice = bestVoice;
-      // Tabletlerde 0.88 sesi metalikleştirdiği için 0.96 doğal hız kullanılır
       utt.rate = 0.96;
       utt.pitch = 1.0;
 
@@ -1930,9 +2676,7 @@
           wIdx++;
         }
       };
-      utt.onend = () => {
-        if (onFinish) onFinish();
-      };
+      utt.onend = () => { if (onFinish) onFinish(); };
       window.speechSynthesis.speak(utt);
     }
 
@@ -1964,9 +2708,6 @@
       playUnifiedTurkishTTS(text, null, null);
     }
 
-    // =========================================================================
-    // RENKLİ HECELEME MANTIĞI
-    // =========================================================================
     let isSyllableMode = false;
     const VOWELS = "aeıioöuüAEIİOÖUÜ";
     
@@ -1978,14 +2719,10 @@
         cur += w[i];
         if (VOWELS.includes(w[i])) {
           if (i+2 < w.length && !VOWELS.includes(w[i+1]) && VOWELS.includes(w[i+2])) { 
-            res.push(cur); 
-            cur = ""; 
+            res.push(cur); cur = ""; 
           }
           else if (i+3 < w.length && !VOWELS.includes(w[i+1]) && !VOWELS.includes(w[i+2]) && VOWELS.includes(w[i+3])) { 
-            cur += w[i+1]; 
-            i++; 
-            res.push(cur); 
-            cur = ""; 
+            cur += w[i+1]; i++; res.push(cur); cur = ""; 
           }
         }
       }
@@ -2011,7 +2748,7 @@
     }
 
     // =========================================================================
-    // ARAYÜZ (UI) VE ERİŞİLEBİLİRLİK AYARLARI
+    // 11. ERİŞİLEBİLİRLİK VE ETKİNLİK AKIŞI
     // =========================================================================
     let currentBaseFontSize = parseInt(localStorage.getItem('portalFontSize') || '22', 10);
     
@@ -2020,33 +2757,16 @@
       document.documentElement.style.setProperty('--base-font-size', `${currentBaseFontSize}px`);
       localStorage.setItem('portalFontSize', currentBaseFontSize);
     }
-    
-    function adjustFontSize(delta) { 
-      applyFontSize(currentBaseFontSize + delta); 
-    }
+    function adjustFontSize(delta) { applyFontSize(currentBaseFontSize + delta); }
     applyFontSize(currentBaseFontSize);
     
-    function toggleDyslexiaFont() { 
-      document.body.classList.toggle('dyslexia-font'); 
-    }
-    
+    function toggleDyslexiaFont() { document.body.classList.toggle('dyslexia-font'); }
     function toggleFullScreen() { 
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch(()=>{}); 
-      } else {
-        document.exitFullscreen(); 
-      }
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(()=>{}); 
+      else document.exitFullscreen(); 
     }
-    
-    function toggleCalmMode() { 
-      document.body.classList.remove('contrast-mode'); 
-      document.body.classList.toggle('calm-mode'); 
-    }
-    
-    function toggleContrast() { 
-      document.body.classList.remove('calm-mode'); 
-      document.body.classList.toggle('contrast-mode'); 
-    }
+    function toggleCalmMode() { document.body.classList.remove('contrast-mode'); document.body.classList.toggle('calm-mode'); }
+    function toggleContrast() { document.body.classList.remove('calm-mode'); document.body.classList.toggle('contrast-mode'); }
     
     let currentDifficulty = 'medium';
     function setDifficulty(diff) {
@@ -2058,362 +2778,6 @@
       loadCurrentActivity();
     }
 
-    // =========================================================================
-    // 20 FARKLI OKUMA SENARYOSU
-    // =========================================================================
-    const CONTEXTS = [
-      {
-        id: 1,
-        base: {
-          sentence: "Ali masada duran taze elmayı yıkadı.",
-          story: "Öğle yemeği vakti gelmişti. Ali masada duran taze elmayı yıkadı. Ardından tabağına ekmek koydu.",
-          paragraph: "Güneş mutfak penceresinden içeri tatlı bir ışık dolduruyordu. Ali masada duran taze elmayı yıkadı. Arkadaşı Zeynep boyalarla geldi. Birlikte meyve yiyip resim çizdiler."
-        },
-        questions: {
-          sentence: [{ qRoot: "Ne", q: "Ali neyi yıkadı?", ans: "taze elmayı", wrong: ["sarı muzu", "yeşil armudu", "kırmızı çileği"] }],
-          story: [{ qRoot: "Ne", q: "Ali tabağına ne koydu?", ans: "ekmek", wrong: ["peynir", "zeytin", "reçel"] }],
-          paragraph: [{ qRoot: "Kim", q: "Boyalarla gelen kimdi?", ans: "Zeynep", wrong: ["Öğretmen", "Kardeşi", "Annesi"] }]
-        }
-      },
-      {
-        id: 2,
-        base: {
-          sentence: "Can dışarıda rüzgar çıkınca kalın montunu giydi.",
-          story: "Hava aniden soğumuştu. Can dışarıda rüzgar çıkınca kalın montunu giydi. Açık pencereleri de sıkıca kapattı.",
-          paragraph: "Sonbahar yaprakları sokaklarda savruluyordu. Rüzgar çıkınca Can hemen kalın montunu giydi. Arkadaşı Mert dışarıdan seslendi. İkisi rüzgardan korunmak için berelerini taktılar."
-        },
-        questions: {
-          sentence: [{ qRoot: "Ne", q: "Can rüzgar çıkınca ne giydi?", ans: "kalın montunu", wrong: ["ince gömleğini", "mavi şapkasını", "yeşil hırkasını"] }],
-          story: [{ qRoot: "Neyi", q: "Can çıkmadan önce neyi kapattı?", ans: "açık pencereleri", wrong: ["sokak kapısını", "televizyonu", "buzdolabını"] }],
-          paragraph: [{ qRoot: "Neden", q: "Çocuklar berelerini neden taktılar?", ans: "rüzgardan korunmak için", wrong: ["moda olduğu için", "sıcak olduğu için", "gizlenmek için"] }]
-        }
-      },
-      {
-        id: 3,
-        base: {
-          sentence: "Elif sessiz kütüphaneden masal kitabı seçti.",
-          story: "Ders zili henüz çalmamıştı. Elif kütüphaneden masal kitabı seçti. Yeşil sandalyeye oturup sayfaları çevirdi.",
-          paragraph: "Okulun en huzurlu yeri kütüphaneydi. Elif oradan bir masal kitabı seçti. Yan masada ders çalışan Ayşe gülümsedi. Birlikte kitaptaki ejderha hikayelerini incelediler."
-        },
-        questions: {
-          sentence: [{ qRoot: "Nereden", q: "Elif masal kitabını nereden seçti?", ans: "sessiz kütüphaneden", wrong: ["kalabalık kantinden", "spor salonundan", "okul bahçesinden"] }],
-          story: [{ qRoot: "Nereye", q: "Elif nereye oturdu?", ans: "yeşil sandalyeye", wrong: ["kırmızı koltuğa", "mavi tabureye", "kahverengi sıraya"] }],
-          paragraph: [{ qRoot: "Ne", q: "Kızlar hangi hikayeleri incelediler?", ans: "ejderha hikayelerini", wrong: ["kedi hikayelerini", "araba hikayelerini", "uzay hikayelerini"] }]
-        }
-      },
-      {
-        id: 4,
-        base: {
-          sentence: "Cem kış gününde kapıdaki kediye ılık süt verdi.",
-          story: "Sokaktaki hayvanlar kışın yiyecek bulamıyordu. Cem kapıdaki üşüyen kediye ılık süt verdi. Kedi sütü içip miyavladı.",
-          paragraph: "Yerlerde ince bir kar vardı. Cem kapıdaki kediye ılık süt verdi. Kedinin siyah beyaz tüyleri vardı. Sokaktan geçen Burak kediyi sevmek için yanlarına geldi."
-        },
-        questions: {
-          sentence: [{ qRoot: "Kime", q: "Cem ılık sütü kime verdi?", ans: "kediye", wrong: ["köpeğe", "kuşa", "tavşana"] }],
-          story: [{ qRoot: "Ne", q: "Kedi sütü içtikten sonra ne yaptı?", ans: "miyavladı", wrong: ["uyudu", "kaçıverdi", "tırmaladı"] }],
-          paragraph: [{ qRoot: "Kim", q: "Kediyi sevmeye kim geldi?", ans: "Burak", wrong: ["Öğretmen", "Postacı", "Cem'in annesi"] }]
-        }
-      },
-      {
-        id: 5,
-        base: {
-          sentence: "Kerem parktaki salıncakta gökyüzüne doğru sallandı.",
-          story: "Bahar akşamıydı. Kerem parktaki salıncakta neşeyle sallandı. Rüzgar yüzünü tatlı tatlı serinletti.",
-          paragraph: "Parkta çocuk sesleri yankılanıyordu. Kerem salıncakta gökyüzüne doğru sallandı. Patenleriyle Deniz yanına geldi. İkisi çimenlerde koşup saklambaç oynadılar."
-        },
-        questions: {
-          sentence: [{ qRoot: "Nerede", q: "Kerem nerede sallandı?", ans: "parktaki salıncakta", wrong: ["okulun bahçesinde", "evin balkonunda", "ormanın içinde"] }],
-          story: [{ qRoot: "Ne zaman", q: "Olay ne zaman gerçekleşti?", ans: "bahar akşamı", wrong: ["kış sabahı", "yaz öğlesi", "gece yarısı"] }],
-          paragraph: [{ qRoot: "Ne", q: "İki arkadaş çimenlerde ne oynadılar?", ans: "saklambaç", wrong: ["körebe", "futbol", "yakantop"] }]
-        }
-      },
-      {
-        id: 6,
-        base: {
-          sentence: "Oya manavdaki kasalardan üç tane portakal aldı.",
-          story: "Evde meyve kalmamıştı. Oya manavdaki kasalardan portakal aldı. Portakalları poşete koyup parasını ödedi.",
-          paragraph: "Pazar yeri kalabalık ve gürültülüydü. Oya manavdan üç tane portakal aldı. Alışverişe çıkan arkadaşı Efe ile karşılaştı. Birlikte muz da alıp eve döndüler."
-        },
-        questions: {
-          sentence: [{ qRoot: "Ne kadar", q: "Oya kaç tane portakal aldı?", ans: "üç tane", wrong: ["beş tane", "bir kilo", "yarım tane"] }],
-          story: [{ qRoot: "Neden", q: "Oya neden manava gitti?", ans: "evde meyve kalmamıştı", wrong: ["canı sıkılmıştı", "spor yapmak için", "arkadaşı istedi diye"] }],
-          paragraph: [{ qRoot: "Kim", q: "Pazarda Oya'nın yanına kim geldi?", ans: "Efe", wrong: ["Annesi", "Pazarcı amca", "Öğretmeni"] }]
-        }
-      },
-      {
-        id: 7,
-        base: {
-          sentence: "Emre kırmızı bisikletiyle sahil yolunda hızla ilerledi.",
-          story: "Hafta sonu hava çok güzeldi. Emre kırmızı bisikletiyle sahil yolunda ilerledi. Yorulunca deniz kenarındaki bankta dinlendi.",
-          paragraph: "Güneş parlarken martılar uçuyordu. Emre bisikletiyle sahilde geziyordu. Karşıdan gelen Arda el salladı. Bisikletleri bırakıp dondurmacıya koştular."
-        },
-        questions: {
-          sentence: [{ qRoot: "Nasıl", q: "Emre sahil yolunda nasıl ilerledi?", ans: "hızla", wrong: ["yavaşça", "ağlayarak", "zorlanarak"] }],
-          story: [{ qRoot: "Nerede", q: "Emre yorulunca nerede dinlendi?", ans: "bankta", wrong: ["evinde", "kafede", "arabada"] }],
-          paragraph: [{ qRoot: "Nereye", q: "Çocuklar nereye koştular?", ans: "dondurmacıya", wrong: ["okula", "kütüphaneye", "manava"] }]
-        }
-      },
-      {
-        id: 8,
-        base: {
-          sentence: "Lale balkondaki renkli çiçekleri sabah erkenden suladı.",
-          story: "Saksıdaki çiçekler açmıştı. Lale balkondaki renkli çiçekleri sabah suladı. Toprağın kokusu onu çok mutlu etti.",
-          paragraph: "Balkon rengarenk çiçeklerle doluydu. Lale sabah erkenden çiçekleri suladı. Komşuları Aslı balkondan ona seslendi. Çiçeklerin büyümesi üzerine sohbet ettiler."
-        },
-        questions: {
-          sentence: [{ qRoot: "Ne zaman", q: "Lale çiçekleri ne zaman suladı?", ans: "sabah erkenden", wrong: ["akşamüstü", "öğlen vakti", "gece yarısı"] }],
-          story: [{ qRoot: "Neden", q: "Lale neden mutlu oldu?", ans: "toprağın kokusundan", wrong: ["yağmur yağdığı için", "oyun oynadığı için", "şeker yediği için"] }],
-          paragraph: [{ qRoot: "Kim", q: "Balkondan seslenen kişi kimdi?", ans: "Aslı", wrong: ["Öğretmeni", "Teyzesi", "Müdür"] }]
-        }
-      },
-      {
-        id: 9,
-        base: {
-          sentence: "Tarık yağmurdan korunmak için sarı şemsiyesini açtı.",
-          story: "Gökyüzü kara bulutlarla kaplandı. Tarık yağmurdan korunmak için sarı şemsiyesini açtı. Ayakkabıları ıslanmasın diye su birikintilerinden atladı.",
-          paragraph: "Sağanak yağmur tüm sokakları yıkıyordu. Tarık sarı şemsiyesini açtı. Şemsiye rüzgarda sallanıyordu. Yolda ıslanan arkadaşı Onur'u görünce şemsiyesinin altına çağırdı."
-        },
-        questions: {
-          sentence: [{ qRoot: "Ne renk", q: "Tarık'ın şemsiyesi ne renkti?", ans: "sarı", wrong: ["kırmızı", "mavi", "siyah"] }],
-          story: [{ qRoot: "Neden", q: "Tarık neden su birikintilerinden atladı?", ans: "ayakkabıları ıslanmasın diye", wrong: ["oyun oynamak için", "spor yapmak için", "acele ettiği için"] }],
-          paragraph: [{ qRoot: "Kimi", q: "Tarık şemsiyenin altına kimi çağırdı?", ans: "Onur'u", wrong: ["kardeşini", "kediyi", "polisi"] }]
-        }
-      },
-      {
-        id: 10,
-        base: {
-          sentence: "Selin mutfakta annesiyle birlikte çikolatalı pasta yaptı.",
-          story: "Bugün kardeşinin doğum günüydü. Selin annesiyle birlikte çikolatalı pasta yaptı. Üzerini renkli şekerlemelerle süslediler.",
-          paragraph: "Evde tatlı bir telaş vardı. Selin annesiyle çikolatalı pasta yaptı. Fırından çıkan kekin kokusu eve yayıldı. Akşam olunca arkadaşı İpek elinde hediye paketiyle geldi."
-        },
-        questions: {
-          sentence: [{ qRoot: "Kiminle", q: "Selin pastayı kiminle yaptı?", ans: "annesiyle", wrong: ["babasıyla", "öğretmeniyle", "yalnız başına"] }],
-          story: [{ qRoot: "Ne", q: "Pastanın üzerini ne ile süslediler?", ans: "renkli şekerlemelerle", wrong: ["meyvelerle", "cevizle", "kremayla"] }],
-          paragraph: [{ qRoot: "Kim", q: "Akşam elinde hediye paketiyle kim geldi?", ans: "İpek", wrong: ["Kurye", "Dayısı", "Postacı"] }]
-        }
-      },
-      {
-        id: 11,
-        base: {
-          sentence: "Bora geniş kırda kırmızı uçurtmasını rüzgara bıraktı.",
-          story: "Rüzgar çok güzel esiyordu. Bora uçurtmasını gökyüzüne doğru bıraktı. Gökyüzündeki beyaz bulutları izledi.",
-          paragraph: "Kırlangıçlar gökyüzünde süzülüyordu. Bora kırmızı uçurtmasını rüzgara bıraktı. Yanına mahalleden Cenk geldi ve birlikte kırlarda koşuşturdular."
-        },
-        questions: {
-          sentence: [{ qRoot: "Nereye", q: "Bora uçurtmasını nereye bıraktı?", ans: "rüzgara", wrong: ["yere", "suya", "ağaca"] }],
-          story: [{ qRoot: "Ne", q: "Bora gökyüzünde neyi izledi?", ans: "beyaz bulutları", wrong: ["kuşları", "yıldızları", "güneşi"] }],
-          paragraph: [{ qRoot: "Kim", q: "Bora'nın yanına kim geldi?", ans: "Cenk", wrong: ["Öğretmeni", "Ayşe", "Babası"] }]
-        }
-      },
-      {
-        id: 12,
-        base: {
-          sentence: "Hasan dedesinin teknesiyle mavi denizde balık tuttu.",
-          story: "Sabah hava çok durgundu. Hasan dedesinin teknesiyle denize açıldı. Oltasına oldukça büyük bir balık takıldı.",
-          paragraph: "Deniz masmavi ve sakindi. Hasan tekneyle balık tutuyordu. Kıyıda bekleyen Kemal onlara neşeyle el salladı. Akşam tuttukları balıkları birlikte afiyetle yediler."
-        },
-        questions: {
-          sentence: [{ qRoot: "Kiminle", q: "Hasan balık tutmaya kiminle çıktı?", ans: "dedesiyle", wrong: ["kardeşiyle", "tek başına", "otobüs şoförüyle"] }],
-          story: [{ qRoot: "Ne", q: "Hasan'ın oltasına ne takıldı?", ans: "büyük bir balık", wrong: ["yeşil yosun", "eski bir ayakkabı", "çöp poşeti"] }],
-          paragraph: [{ qRoot: "Nasıl", q: "Deniz nasıldı?", ans: "masmavi ve sakin", wrong: ["dalgalı ve karanlık", "korkutucu", "kirli ve soğuk"] }]
-        }
-      },
-      {
-        id: 13,
-        base: {
-          sentence: "Defne masadaki büyük kağıda rengarenk gökkuşağı çizdi.",
-          story: "Resim dersi yeni başlamıştı. Defne kağıdına büyük bir gökkuşağı çizdi. Boyalarının kapağını dikkatlice kapattı.",
-          paragraph: "Sınıf o gün çok sessizdi. Defne büyük kağıda gökkuşağı çizdi. Sıra arkadaşı Ece de kendi kağıdına parlayan bir güneş çizdi. İki resim yan yana harika duruyordu."
-        },
-        questions: {
-          sentence: [{ qRoot: "Ne", q: "Defne kağıda ne çizdi?", ans: "gökkuşağı", wrong: ["küçük ev", "hızlı araba", "sevimli kedi"] }],
-          story: [{ qRoot: "Neyi", q: "Defne neyin kapağını kapattı?", ans: "boyalarının kapağını", wrong: ["defterin", "şişenin", "okul çantasının"] }],
-          paragraph: [{ qRoot: "Kim", q: "Parlayan güneşi çizen kimdi?", ans: "Ece", wrong: ["Ali", "Öğretmen", "Defne'nin annesi"] }]
-        }
-      },
-      {
-        id: 14,
-        base: {
-          sentence: "Murat bahçedeki karlardan kocaman kardan adam yaptı.",
-          story: "Kar tüm gece aralıksız yağmıştı. Murat bahçede büyük bir kardan adam yaptı. Burnuna mutfaktan aldığı havucu taktı.",
-          paragraph: "Okullar yoğun kar yüzünden tatil olmuştu. Murat bahçede kardan adam yapıyordu. Yan komşuları Sinan kendi adamını yapmak için bahçeye çıktı. Birlikte kartopu savaşı yaptılar."
-        },
-        questions: {
-          sentence: [{ qRoot: "Nerede", q: "Murat kardan adamı nerede yaptı?", ans: "bahçede", wrong: ["evde", "balkonda", "sokakta"] }],
-          story: [{ qRoot: "Ne", q: "Murat kardan adamın burnuna ne taktı?", ans: "havuç", wrong: ["zeytin", "kömür", "çubuk"] }],
-          paragraph: [{ qRoot: "Neden", q: "Okullar neden tatil olmuştu?", ans: "kar yüzünden", wrong: ["yaz geldiği için", "bayram olduğu için", "hasta oldukları için"] }]
-        }
-      },
-      {
-        id: 15,
-        base: {
-          sentence: "Merve büyük kitapçıdan macera dolu yeni kitap aldı.",
-          story: "Hafta sonu alışverişe çıkmışlardı. Merve kitapçıdan yeni bir kitap satın aldı. Kitabın kapağındaki dev uzay gemisi çok güzeldi.",
-          paragraph: "Kitapçının içi taze kağıt kokuyordu. Merve macera dolu bir kitap buldu. Kasada ödeme yaparken okul arkadaşı Nil ile karşılaştı. İkisi de aynı yazarın kitaplarını seviyordu."
-        },
-        questions: {
-          sentence: [{ qRoot: "Nasıl", q: "Merve nasıl bir kitap aldı?", ans: "macera dolu", wrong: ["sıkıcı", "çok kısa", "eski ve yırtık"] }],
-          story: [{ qRoot: "Ne", q: "Kitabın kapağında ne resmi vardı?", ans: "uzay gemisi", wrong: ["yarış arabası", "çiçek", "şato"] }],
-          paragraph: [{ qRoot: "Kiminle", q: "Merve kasada kiminle karşılaştı?", ans: "Nil", wrong: ["Öğretmeniyle", "Babasıyla", "Kardeşiyle"] }]
-        }
-      },
-      {
-        id: 16,
-        base: {
-          sentence: "Ozan ormanda ailesiyle birlikte neşeli bir piknik yaptı.",
-          story: "Güneş pırıl pırıl parlıyordu. Ozan ormanda ailesiyle neşeli bir piknik yaptı. Kırmızı örtünün üzerine evde hazırladıkları yiyecekleri dizdiler.",
-          paragraph: "Ormanın havası çok temiz ve ferahtı. Ozan ailesiyle güzel bir piknik yaptı. Top oynarken kuzeni Tolga topu uzağa attı. İkisi de koşarak çalıların arasında topu aramaya gittiler."
-        },
-        questions: {
-          sentence: [{ qRoot: "Ne zaman", q: "Ozan pikniği ne zaman yaptı?", ans: "güneş parlarken", wrong: ["gece yarısı", "yağmur yağarken", "kışın ortasında"] }],
-          story: [{ qRoot: "Nereye", q: "Yiyecekleri nereye dizdiler?", ans: "örtünün üzerine", wrong: ["masanın altına", "ıslak çimenlere", "arabaya"] }],
-          paragraph: [{ qRoot: "Kim", q: "Topu uzağa atan kimdi?", ans: "Tolga", wrong: ["Ozan", "Babası", "Sokak köpeği"] }]
-        }
-      },
-      {
-        id: 17,
-        base: {
-          sentence: "Sedat okula gitmek için sarı yolcu otobüsüne bindi.",
-          story: "Saat sabah sekizi gösteriyordu. Sedat durakta sarı yolcu otobüsüne bindi. Boş bulduğu en arka cam kenarı koltuğuna oturdu.",
-          paragraph: "Şehirde trafik biraz yoğundu. Sedat okula gitmek için sarı otobüse bindi. Bir sonraki durakta sınıf arkadaşı Yasin bindi ve Sedat'ın yanına oturdu. Yol boyunca okul ödevlerinden konuştular."
-        },
-        questions: {
-          sentence: [{ qRoot: "Neden", q: "Sedat neden otobüse bindi?", ans: "okula gitmek için", wrong: ["gezmek için", "markete gitmek için", "uyumak için"] }],
-          story: [{ qRoot: "Nereye", q: "Sedat nereye oturdu?", ans: "cam kenarına", wrong: ["şoförün yanına", "yere", "merdivene"] }],
-          paragraph: [{ qRoot: "Ne", q: "Çocuklar yol boyunca ne konuştular?", ans: "okul ödevlerinden", wrong: ["oyunlardan", "hafta sonu maçından", "öğle yemeğinden"] }]
-        }
-      },
-      {
-        id: 18,
-        base: {
-          sentence: "Pelin hayvanat bahçesinde uzun boyunlu zürafayı izledi.",
-          story: "Bugün tatil günüydü. Pelin hayvanat bahçesinde uzun boyunlu zürafayı izledi. Zürafa en yüksek dallardaki taze yeşil yaprakları yiyordu.",
-          paragraph: "Hayvanat bahçesi ailelerle doluydu ve çok kalabalıktı. Pelin sarı zürafayı büyük bir ilgiyle izledi. Yanına kardeşi Su koşarak geldi ve parmağıyla maymunları gösterdi. Birlikte hayvanları izlerken çok eğlendiler."
-        },
-        questions: {
-          sentence: [{ qRoot: "Neyi", q: "Pelin hayvanat bahçesinde neyi izledi?", ans: "zürafayı", wrong: ["aslanı", "fili", "küçük tavşanı"] }],
-          story: [{ qRoot: "Ne", q: "Zürafa ne yiyordu?", ans: "yeşil yaprakları", wrong: ["meyve", "kırmızı et", "kuru ekmek"] }],
-          paragraph: [{ qRoot: "Kimi", q: "Su parmağıyla kimi gösterdi?", ans: "maymunları", wrong: ["zürafayı", "kuşları", "balıkları"] }]
-        }
-      },
-      {
-        id: 19,
-        base: {
-          sentence: "Eren karanlık ormanda sıcak bir kamp ateşi yaktı.",
-          story: "Gece çökmüş, hava çok soğumuştu. Eren odunları toplayarak sıcak bir kamp ateşi yaktı. Ateşin etrafında oturup ellerini ısıttılar.",
-          paragraph: "Ormanda sadece baykuş sesleri duyuluyordu. Eren odunlarla sıcak kamp ateşini yaktı. Arkadaşı Kaan çadırın içinden yün battaniyeleri getirdi. İkisi ateşe bakarak birbirlerine ilginç hikayeler anlattılar."
-        },
-        questions: {
-          sentence: [{ qRoot: "Nerede", q: "Eren nerede kamp ateşi yaktı?", ans: "karanlık ormanda", wrong: ["evde", "balkonda", "sahilde"] }],
-          story: [{ qRoot: "Neden", q: "Eren neden ateş yaktı?", ans: "ısınmak için", wrong: ["ışık olsun diye", "yemek pişirmek için", "oyun oynamak için"] }],
-          paragraph: [{ qRoot: "Nereden", q: "Kaan battaniyeleri nereden getirdi?", ans: "çadırın içinden", wrong: ["arabadan", "evden", "kendi çantasından"] }]
-        }
-      },
-      {
-        id: 20,
-        base: {
-          sentence: "Umut gece olunca pencereden parlak yıldızları izledi.",
-          story: "Gökyüzü o gece tamamen bulutsuzdu. Umut penceresinden parlayan yıldızları izledi. Kayan bir yıldız görünce gözlerini kapatıp içinden dilek tuttu.",
-          paragraph: "Gece her yer çok sessizdi ve sokak lambaları sönüktü. Umut pencereden yıldızları izledi. Odasını paylaşan abisi Rüzgar da uyanıp yanına geldi. Birlikte gökyüzündeki yıldız gruplarını farklı şekillere benzettiler."
-        },
-        questions: {
-          sentence: [{ qRoot: "Nereden", q: "Umut yıldızları nereden izledi?", ans: "pencereden", wrong: ["balkondan", "çatıdan", "bahçeden"] }],
-          story: [{ qRoot: "Ne zaman", q: "Umut ne zaman dilek tuttu?", ans: "kayan yıldız görünce", wrong: ["güneş doğarken", "uyumadan önce", "sabah olunca"] }],
-          paragraph: [{ qRoot: "Kim", q: "Umut'un yanına gelen kimdi?", ans: "abisi Rüzgar", wrong: ["annesi", "babası", "sınıf arkadaşı"] }]
-        }
-      }
-    ];
-
-    // =========================================================================
-    // 20 FARKLI GÖRSEL SIRALAMA ŞABLONU
-    // =========================================================================
-    const SEQUENCE_TEMPLATES = [
-      { id:1, title: "Elleri Yıkama", steps: [ {id:1, icon:"💧", text:"Elleri suyla ıslat."}, {id:2, icon:"🧼", text:"Sabunla köpürt."}, {id:3, icon:"🧖", text:"Havluyla kurula."} ] },
-      { id:2, title: "Diş Fırçalama", steps: [ {id:1, icon:"🪥", text:"Fırçaya macun sık."}, {id:2, icon:"✨", text:"Dişlerini dairesel fırçala."}, {id:3, icon:"🚰", text:"Ağzını suyla çalkala."} ] },
-      { id:3, title: "Tohum Ekme", steps: [ {id:1, icon:"🌱", text:"Toprağa çukur aç."}, {id:2, icon:"🌰", text:"Tohumu koyup kapat."}, {id:3, icon:"🚿", text:"Can suyunu ver."} ] },
-      { id:4, title: "Tost Yapma", steps: [ {id:1, icon:"🍞", text:"Ekmeğin arasına peynir koy."}, {id:2, icon:"🧇", text:"Tost makinesine bas."}, {id:3, icon:"😋", text:"Sıcak tostu afiyetle ye."} ] },
-      { id:5, title: "Kardan Adam", steps: [ {id:1, icon:"❄️", text:"Karları yuvarla."}, {id:2, icon:"🥕", text:"Burnuna havuç tak."}, {id:3, icon:"🧣", text:"Boynuna atkı sar."} ] },
-      { id:6, title: "Mektup Gönderme", steps: [ {id:1, icon:"✍️", text:"Mektubu kağıda yaz."}, {id:2, icon:"✉️", text:"Zarfa koyup pul yapıştır."}, {id:3, icon:"📮", text:"Posta kutusuna at."} ] },
-      { id:7, title: "Çay Demleme", steps: [ {id:1, icon:"🫖", text:"Çaydanlığa su koyup kaynat."}, {id:2, icon:"🌿", text:"Demliğe çay yapraklarını at."}, {id:3, icon:"☕", text:"Kaynar suyu üzerine döküp bekle."} ] },
-      { id:8, title: "Makarna Pişirme", steps: [ {id:1, icon:"🍲", text:"Tencerede su kaynat."}, {id:2, icon:"🍝", text:"Makarnaları suya atıp haşla."}, {id:3, icon:"🍅", text:"Sos ekleyip karıştır."} ] },
-      { id:9, title: "Yatak Toplama", steps: [ {id:1, icon:"🛏️", text:"Yataktan kalkınca havalandır."}, {id:2, icon:"🛌", text:"Çarşafları ve yorganı düzelt."}, {id:3, icon:"🧸", text:"Yastıkları düzgünce yerleştir."} ] },
-      { id:10, title: "Ayakkabı Bağlama", steps: [ {id:1, icon:"👟", text:"Bağcıkları çapraz yap."}, {id:2, icon:"🎀", text:"İki halka (tavşan kulağı) yap."}, {id:3, icon:"👞", text:"Halkaları birbirinin içinden geçir."} ] },
-      { id:11, title: "Hediye Paketleme", steps: [ {id:1, icon:"🎁", text:"Hediyeyi kutuya koy."}, {id:2, icon:"📜", text:"Kutuyu renkli kağıtla sar."}, {id:3, icon:"🎀", text:"Üzerine kurdele bağla."} ] },
-      { id:12, title: "Çamaşır Asma", steps: [ {id:1, icon:"🧺", text:"Islak çamaşırları sepetten al."}, {id:2, icon:"👕", text:"Çamaşırı silkeleyip ipe ser."}, {id:3, icon:"📎", text:"Düşmemesi için mandal tak."} ] },
-      { id:13, title: "Resim Çizme", steps: [ {id:1, icon:"📄", text:"Boş bir kağıt al."}, {id:2, icon:"✏️", text:"Kalemle taslağını çiz."}, {id:3, icon:"🖍️", text:"Kuru boyalarla renklendir."} ] },
-      { id:14, title: "Limonata Yapma", steps: [ {id:1, icon:"🍋", text:"Limonları ortadan kesip sık."}, {id:2, icon:"🧊", text:"Suyu, şekeri ve buzu ekle."}, {id:3, icon:"🍹", text:"Kaşıkla iyice karıştır."} ] },
-      { id:15, title: "Akvaryum Temizleme", steps: [ {id:1, icon:"🐟", text:"Balıkları dikkatlice başka kaba al."}, {id:2, icon:"🧽", text:"Akvaryumun camlarını sil."}, {id:3, icon:"💧", text:"Temiz su doldurup balıkları koy."} ] },
-      { id:16, title: "Omlet Yapma", steps: [ {id:1, icon:"🥚", text:"Yumurtaları kaseye kırıp çırp."}, {id:2, icon:"🍳", text:"Sıcak tavaya dök."}, {id:3, icon:"🍽️", text:"Pişince tabağa al."} ] },
-      { id:17, title: "Bulaşık Yıkama", steps: [ {id:1, icon:"🍽️", text:"Kirli tabağı suya tut."}, {id:2, icon:"🧽", text:"Süngerle sabunla."}, {id:3, icon:"🚿", text:"Bol suyla durula."} ] },
-      { id:18, title: "Çiçek Dikme", steps: [ {id:1, icon:"🪴", text:"Saksının yarısına toprak koy."}, {id:2, icon:"🌷", text:"Çiçeği toprağa yerleştir."}, {id:3, icon:"🚿", text:"Üzerini kapatıp su ver."} ] },
-      { id:19, title: "Sandviç Hazırlama", steps: [ {id:1, icon:"🍞", text:"Ekmeği ortadan kes."}, {id:2, icon:"🍅", text:"İçine domates ve peynir diz."}, {id:3, icon:"🥪", text:"Kapatıp afiyetle ye."} ] },
-      { id:20, title: "Çanta Hazırlama", steps: [ {id:1, icon:"📅", text:"Ders programına bak."}, {id:2, icon:"📚", text:"Kitap ve defterleri çantaya koy."}, {id:3, icon:"🎒", text:"Çantanın fermuarını kapat."} ] }
-    ];
-
-    // =========================================================================
-    // DİNAMİK SORU MOTORU
-    // =========================================================================
-    let lastUsedContextId = -1;
-    let lastUsedSequenceId = -1;
-    let dataset = { sentence: [], sequence: [], story: [], paragraph: [] };
-
-    function getRandomItem(arr) { 
-      return arr[Math.floor(Math.random() * arr.length)]; 
-    }
-
-    function buildChoices(correctAnswer, wrongPool) {
-      let count = (currentDifficulty === 'easy') ? 2 : ((currentDifficulty === 'hard') ? 4 : 3);
-      const shuffledWrong = [...wrongPool].sort(() => 0.5 - Math.random());
-      return [correctAnswer, ...shuffledWrong.slice(0, count - 1)].sort(() => 0.5 - Math.random());
-    }
-
-    function generateQuestionData(category) {
-      if (category === 'sequence') {
-        const pool = SEQUENCE_TEMPLATES.filter(t => t.id !== lastUsedSequenceId);
-        const tpl = pool.length > 0 ? getRandomItem(pool) : getRandomItem(SEQUENCE_TEMPLATES);
-        lastUsedSequenceId = tpl.id;
-        
-        return {
-          id: 'seq_' + Date.now(),
-          levelDesc: '2. Düzey: Görsel Olay Sıralama',
-          title: tpl.title + " Sıralaması",
-          questionRoot: 'Olay Sıralama',
-          question: 'Adımları doğru gerçekleşme sırasına göre sürükleyip bırakarak düzenle:',
-          steps: tpl.steps
-        };
-      }
-
-      const pool = CONTEXTS.filter(c => c.id !== lastUsedContextId);
-      const ctx = pool.length > 0 ? getRandomItem(pool) : getRandomItem(CONTEXTS);
-      lastUsedContextId = ctx.id;
-      
-      const categoryQuestions = ctx.questions[category];
-      const qData = getRandomItem(categoryQuestions);
-      
-      const text = ctx.base[category];
-      const correctAnswer = qData.ans;
-      const choices = buildChoices(correctAnswer, qData.wrong);
-
-      const levelDescs = { 
-        sentence: '1. Düzey: Tek Cümle', 
-        story: '3. Düzey: Mini Hikâye', 
-        paragraph: '4. Düzey: Paragraf Okuma' 
-      };
-
-      return {
-        id: category + '_' + Date.now(),
-        levelDesc: levelDescs[category],
-        text: text,
-        questionRoot: qData.qRoot,
-        question: qData.q,
-        choices: choices,
-        correctIndex: choices.indexOf(correctAnswer)
-      };
-    }
-
-    // =========================================================================
-    // ETKİNLİK İŞLEME VE GEZİNTİ DÖNGÜSÜ (İpucu sistemi tamamen kaldırıldı)
-    // =========================================================================
     let currentCategory = 'sentence';
     let currentItemIndex = 0;
     let itemStartTime = null; 
@@ -2421,7 +2785,6 @@
 
     function switchCategory(cat) {
       stopAllSpeech();
-      
       isSyllableMode = false;
       const sylBtn = document.getElementById('syllableBtn');
       sylBtn.style.background = 'var(--surface)';
@@ -2453,18 +2816,15 @@
         }
         currentItemIndex++;
         loadCurrentActivity();
-      } else if (direction === -1) {
-        if (currentItemIndex > 0) {
-          currentItemIndex--;
-          loadCurrentActivity();
-        }
+      } else if (direction === -1 && currentItemIndex > 0) {
+        currentItemIndex--;
+        loadCurrentActivity();
       }
     }
 
     function loadCurrentActivity() {
       stopAllSpeech();
       itemStartTime = Date.now();
-      
       const item = dataset[currentCategory][currentItemIndex];
       
       document.getElementById('levelTag').textContent = item.levelDesc;
@@ -2473,11 +2833,8 @@
       const readingArea = document.getElementById('readingArea');
       const interactiveArea = document.getElementById('interactiveArea');
 
-      if (currentCategory === 'paragraph') {
-        readingArea.classList.add('paragraph-mode');
-      } else {
-        readingArea.classList.remove('paragraph-mode');
-      }
+      if (currentCategory === 'paragraph') readingArea.classList.add('paragraph-mode');
+      else readingArea.classList.remove('paragraph-mode');
 
       if (currentCategory === 'sequence') { 
         readingArea.innerHTML = item.title; 
@@ -2548,12 +2905,15 @@
     }
 
     // =========================================================================
-    // GÖRSEL SIRALAMA VE SÜRÜKLE BIRAK (DRAG & DROP)
+    // 12. GÖRSEL SIRALAMA (SÜRÜKLE & BIRAK)
     // =========================================================================
     let dragSrcEl = null;
     
     function renderSequence(item, container) {
-      sequenceDraft = [...item.steps].sort(() => Math.random() - 0.5);
+      sequenceDraft = shuffleArray(item.steps);
+      if (sequenceDraft.every((s, i) => s.id === item.steps[i].id)) {
+        sequenceDraft.reverse();
+      }
       drawSequenceItems(container, item);
     }
     
@@ -2575,7 +2935,7 @@
       });
       
       container.innerHTML = html + `</div>
-        <button class="btn btn-primary" style="width:100%; font-size:1.2rem; padding:1rem; justify-content:center;" onclick="checkSequence()">Kontrol Et ✓</button>`;
+        <button class="btn btn-primary" style="width:100%; font-size:1.18rem; padding:0.95rem; justify-content:center;" onclick="checkSequence()">Kontrol Et ✓</button>`;
 
       document.querySelectorAll('.order-item').forEach(el => {
         el.addEventListener('dragstart', function(e){ 
@@ -2583,16 +2943,9 @@
           e.dataTransfer.effectAllowed = 'move'; 
           setTimeout(() => this.classList.add('dragging'), 0); 
         });
-        el.addEventListener('dragover', function(e){ 
-          if (e.preventDefault) e.preventDefault(); 
-          return false; 
-        });
-        el.addEventListener('dragenter', function(){ 
-          this.classList.add('drag-over'); 
-        });
-        el.addEventListener('dragleave', function(){ 
-          this.classList.remove('drag-over'); 
-        });
+        el.addEventListener('dragover', function(e){ if (e.preventDefault) e.preventDefault(); return false; });
+        el.addEventListener('dragenter', function(){ this.classList.add('drag-over'); });
+        el.addEventListener('dragleave', function(){ this.classList.remove('drag-over'); });
         el.addEventListener('drop', function(e){ 
           if (e.stopPropagation) e.stopPropagation(); 
           if (dragSrcEl != this) swapSequence(parseInt(dragSrcEl.dataset.idx), parseInt(this.dataset.idx)); 
@@ -2603,11 +2956,7 @@
           document.querySelectorAll('.order-item').forEach(itemEl => itemEl.classList.remove('drag-over')); 
         });
         
-        // Mobil / Tablet Touch Events
-        el.addEventListener('touchstart', function(){ 
-          dragSrcEl = this; 
-          this.classList.add('dragging'); 
-        }, {passive: false});
+        el.addEventListener('touchstart', function(){ dragSrcEl = this; this.classList.add('dragging'); }, {passive: false});
         el.addEventListener('touchmove', function(e){ 
           if (!dragSrcEl) return; 
           e.preventDefault(); 
@@ -2670,10 +3019,7 @@
         if (btn) {
           btn.style.background = '#ef4444'; 
           btn.textContent = 'Tekrar Düşünelim!';
-          setTimeout(() => { 
-            btn.style.background = ''; 
-            btn.textContent = 'Kontrol Et ✓'; 
-          }, 2000);
+          setTimeout(() => { btn.style.background = ''; btn.textContent = 'Kontrol Et ✓'; }, 2000);
         }
       }
     }
@@ -2707,7 +3053,6 @@
       if (pendingCategoryTransition) {
         const targetCat = pendingCategoryTransition;
         pendingCategoryTransition = null;
-        // Yeni kategoriye geçerken yeni soru üret
         dataset[targetCat].push(generateQuestionData(targetCat));
         switchCategory(targetCat);
       } else {
@@ -2716,7 +3061,7 @@
     }
 
     // =========================================================================
-    // KLAVYE KISAYOLLARI VE YARDIMCI FONKSİYONLAR
+    // 13. KLAVYE KISAYOLLARI, ÖZEL İÇERİK VE ÖĞRETMEN RAPORU
     // =========================================================================
     window.addEventListener('keydown', (e) => {
       if (document.getElementById('activityContainer').style.display === 'none') return;
@@ -2734,13 +3079,8 @@
       }
     });
 
-    function openCustomContentModal() { 
-      document.getElementById('contentModal').style.display = 'flex'; 
-    }
-    
-    function closeCustomContentModal() { 
-      document.getElementById('contentModal').style.display = 'none'; 
-    }
+    function openCustomContentModal() { document.getElementById('contentModal').style.display = 'flex'; }
+    function closeCustomContentModal() { document.getElementById('contentModal').style.display = 'none'; }
     
     function saveCustomContent() {
       const cat = document.getElementById('newContentCategory').value;
@@ -2753,8 +3093,7 @@
         return alert('Lütfen tüm alanları doldurun.');
       }
       
-      const choices = [correct, ...wrong].sort(() => 0.5 - Math.random());
-      
+      const choices = shuffleArray([correct, ...wrong]);
       dataset[cat].push({ 
         id: 'custom_' + Date.now(), 
         levelDesc: 'Özel İçerik', 
@@ -2783,7 +3122,7 @@
             <p style="font-weight: bold; margin-bottom: 6px;">${i+1}. Metni Oku ve Soruyu Yanıtla:</p>
             <p style="background: #f8fafc; padding: 10px; border-left: 3px solid #4f46e5; margin-bottom: 10px;">"${item.text}"</p>
             <p style="font-weight: 600; margin-bottom: 8px;">Soru: ${item.question}</p>
-            <div style="display: flex; gap: 20px;">
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
               ${item.choices.map(c => `<span>( &nbsp; ) ${c}</span>`).join('')}
             </div>
           </div>`;
@@ -2791,19 +3130,13 @@
       window.print();
     }
 
-    // =========================================================================
-    // ÖĞRETMEN PANELİ VE RAPORLAR (Üstteki türler gizlenir)
-    // =========================================================================
     function openReportTab() {
       stopAllSpeech();
-      
-      // Öğretmen paneline geçince üstteki etkinlik türlerini, ödev barını ve zorluk çubuğunu gizle
       document.getElementById('categorySection').style.display = 'none';
       document.getElementById('difficultyBar').style.display = 'none';
       document.getElementById('studentHomeworkBanner').style.display = 'none';
       document.getElementById('activityContainer').style.display = 'none';
       document.getElementById('reportContainer').style.display = 'block';
-      
       renderReport();
     }
 
@@ -2833,25 +3166,24 @@
       document.getElementById('reportTotalTasks').textContent = logs.length;
       document.getElementById('reportDate').textContent = new Date().toLocaleDateString('tr-TR');
 
-      // Öğretmen panelinde aktif ödevlerin durumu
       const hwBox = document.getElementById('teacherHomeworkSummaryBox');
       const hw = getStudentHomework();
       if (hw.tasks && hw.tasks.length > 0) {
-        let hwHtml = `<div style="background:var(--surface-subtle); border:2px solid var(--border); border-radius:var(--radius-md); padding:1.1rem;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.65rem; flex-wrap:wrap; gap:0.5rem;">
+        let hwHtml = `<div style="background:var(--surface-subtle); border:2px solid var(--border); border-radius:var(--radius-md); padding:1.05rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.6rem; flex-wrap:wrap; gap:0.5rem;">
             <strong style="color:var(--primary);">📋 Öğrencinin Aktif Ödev Durumu:</strong>
-            <button class="btn" style="background:var(--danger-light); color:#b91c1c; border-color:#fca5a5; padding:0.3rem 0.7rem; font-size:0.85rem;" onclick="clearAllStudentHomework()">🗑️ Tüm Ödevleri Sil</button>
+            <button class="btn" style="background:var(--danger-light); color:#b91c1c; border-color:#fca5a5; padding:0.28rem 0.65rem; font-size:0.82rem;" onclick="clearAllStudentHomework()">🗑️ Tüm Ödevleri Sil</button>
           </div>`;
         if (hw.parentNote) {
-          hwHtml += `<div style="margin-bottom:0.65rem; font-size:0.95rem; color:#78350f; background:#fef3c7; padding:0.55rem 0.85rem; border-radius:10px; font-weight:700;">💌 <strong>Veli Notu:</strong> ${hw.parentNote}</div>`;
+          hwHtml += `<div style="margin-bottom:0.6rem; font-size:0.92rem; color:#78350f; background:#fef3c7; padding:0.5rem 0.8rem; border-radius:10px; font-weight:700;">💌 <strong>Veli Notu:</strong> ${hw.parentNote}</div>`;
         }
-        hwHtml += `<div style="display:flex; flex-wrap:wrap; gap:0.6rem;">`;
+        hwHtml += `<div style="display:flex; flex-wrap:wrap; gap:0.55rem;">`;
         hw.tasks.forEach(t => {
           const meta = CATEGORY_META[t.category];
           const isDone = t.completed >= t.target;
-          hwHtml += `<div style="background:#ffffff; border:2px solid ${isDone ? '#10b981' : 'var(--border)'}; border-radius:12px; padding:0.5rem 0.85rem; display:flex; align-items:center; gap:0.65rem; font-size:0.92rem; font-weight:800;">
+          hwHtml += `<div style="background:#ffffff; border:2px solid ${isDone ? '#10b981' : 'var(--border)'}; border-radius:12px; padding:0.45rem 0.8rem; display:flex; align-items:center; gap:0.6rem; font-size:0.9rem; font-weight:800;">
             <span>${meta.icon} ${meta.name}: ${t.completed}/${t.target} ${isDone ? '✅' : '⏳'}</span>
-            <button class="btn" style="padding:0.15rem 0.45rem; font-size:0.78rem; background:#fee2e2; color:#b91c1c; border-color:#fca5a5;" onclick="deleteSingleHomeworkTask('${t.category}')">Sil</button>
+            <button class="btn" style="padding:0.15rem 0.45rem; font-size:0.76rem; background:#fee2e2; color:#b91c1c; border-color:#fca5a5;" onclick="deleteSingleHomeworkTask('${t.category}')">Sil</button>
           </div>`;
         });
         hwHtml += `</div></div>`;
@@ -2884,11 +3216,8 @@
             ? '<span class="tag-badge tag-success">Bağımsız</span>' 
             : '<span class="tag-badge tag-warn">Destek Gerekli</span>';
             
-          if (ratio >= 70) {
-            bepStrengths.push(`"${root}" (%${ratio})`); 
-          } else {
-            bepNeeds.push(`"${root}" (%${ratio})`);
-          }
+          if (ratio >= 70) bepStrengths.push(`"${root}" (%${ratio})`); 
+          else bepNeeds.push(`"${root}" (%${ratio})`);
           
           rootBody.innerHTML += `
             <tr>
@@ -2927,6 +3256,7 @@
     }
 
     // Uygulamayı başlat
+    setupHighResAppIcons();
     initTeacherLongPress();
     syncStudentDropdowns();
   </script>
